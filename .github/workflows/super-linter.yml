@@ -27,3 +27,9 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JAVASCRIPT_DEFAULT_STYLE: prettier
+          LOG_FILE: super-linter.log
+          OUTPUT_FOLDER: linter-report
+          VALIDATE_MARKDOWN: false
+          LOG_LEVEL: verbose
+        
