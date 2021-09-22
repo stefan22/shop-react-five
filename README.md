@@ -9,13 +9,13 @@ in-progress :turtle:
 - Need product data w/images
 
 
-<br /> < br />
+<br /> <br />
 
 #### Assets
 
 - men's images courtesy of North Face
-- data provide by Marks & Spencer
-=======
+- data provided by Marks & Spencer.   
+
 
 
 
