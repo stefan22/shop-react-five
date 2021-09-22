@@ -32,4 +32,4 @@ jobs:
           OUTPUT_FOLDER: linter-report
           VALIDATE_MARKDOWN: false
           LOG_LEVEL: verbose
-          CSS_FILE_NAME: .stylelintrc.yml
+        
