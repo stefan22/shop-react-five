@@ -18,33 +18,36 @@ class Directory extends Component {
           title: "HATS",
           imageUrl: menHat,
           id: 1,
+          size: "regular",
           linkUrl: "hats",
         },
         {
           title: "JACKETS",
           imageUrl: jackets,
           id: 2,
-          linkUrl: "",
+          size: "regular",
+          linkUrl: "jackets",
         },
         {
           title: "SNEAKERS",
           imageUrl: sneakers,
           id: 3,
-          linkUrl: "",
+          size: "regular",
+          linkUrl: "sneakers",
         },
         {
           title: "WOMEN",
           imageUrl: woman,
           size: "large",
           id: 4,
-          linkUrl: "",
+          linkUrl: "women",
         },
         {
           title: "MEN",
           imageUrl: man,
           size: "large",
           id: 5,
-          linkUrl: "",
+          linkUrl: "men",
         },
       ],
     };
@@ -53,8 +56,11 @@ class Directory extends Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({id, title, imageUrl, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.sections.map(({id, ...otherProps }) => (
+          <MenuItem 
+            key={id} 
+            {...otherProps}
+          />
         ))}
       </div>
     );

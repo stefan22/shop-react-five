@@ -1,11 +1,12 @@
 .directory-menu {
   &__item {
-    min-width: 32.5%;
+    min-width: 32.45%;
     height: 240px;
     flex: 0 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .4s linear 150ms;
     border: 1px solid black;
     margin: 0;
 
@@ -17,12 +18,13 @@
     }
 
     &:hover {
-      cursor: pointer;
-      transform: translate(1.1);
-      //transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-
-      & content {
+      //leave for gsap
+      .content-item {
+        cursor: pointer;
         opacity: 0.9;
+        //transform: scale(1.1);
+        //transition: transform 6s cubic-bezier(0.25,0.45,0.45,0.95);
+       
       }
     }
 
@@ -35,6 +37,7 @@
       }
     }
   }
+
 }
 
 .content-item {
@@ -46,6 +49,7 @@
   justify-content: center;
   border: 1px solid black;
   cursor: pointer;
+  transition: all .4s linear 150ms;
   background-color: white;
   opacity: 0.7;
 
