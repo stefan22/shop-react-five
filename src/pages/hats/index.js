@@ -1,5 +1,5 @@
-import React from "react";
-import "./styles.scss";
+import React from 'react';
+import './styles.scss';
 
 const Hats = () => (
   <div className="home-page">
