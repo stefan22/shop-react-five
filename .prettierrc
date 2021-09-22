@@ -1,0 +1,14 @@
+{
+  "semi": true,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "printWidth": 60,
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "singleAttributePerLine": false,
+  "react/jsx-max-props-per-line": [1, "multiline"],
+  "--jsx-bracket-same-line": false,
+  "--no-bracket-spacing": false
+}
