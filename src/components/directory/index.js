@@ -1,56 +1,16 @@
 import React, {Component} from "react";
 import MenuItem from "../menu-item";
+//helpers
+import { categories } from "../../helpers/categories.data";
 import "./styles.scss";
-//category images
-import menHat from "../../images/hat3-men.jpg";
-import jackets from "../../images/jax8.jpg";
-import sneakers from "../../images/con1.jpg";
-import woman from "../../images/women-selfie.jpg";
-import man from "../../images/sh2.jpg";
+
 
 class Directory extends Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
-      sections: [
-        {
-          title: "HATS",
-          imageUrl: menHat,
-          id: 1,
-          size: "regular",
-          linkUrl: "hats",
-        },
-        {
-          title: "JACKETS",
-          imageUrl: jackets,
-          id: 2,
-          size: "regular",
-          linkUrl: "jackets",
-        },
-        {
-          title: "SNEAKERS",
-          imageUrl: sneakers,
-          id: 3,
-          size: "regular",
-          linkUrl: "sneakers",
-        },
-        {
-          title: "WOMEN",
-          imageUrl: woman,
-          size: "large",
-          id: 4,
-          linkUrl: "women",
-        },
-        {
-          title: "MEN",
-          imageUrl: man,
-          size: "large",
-          id: 5,
-          linkUrl: "men",
-        },
-      ],
-    };
+      sections: categories
+    }
   }
 
   render() {
