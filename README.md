@@ -1,6 +1,6 @@
 # Shop-React-Five
 
-[![GitHub Super-Linter](https://github.com/stefan22/shop-react-five/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter) &nbsp; [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https:/github.com/stefan22/shop-react-five.git)
+[![GitHub Super-Linter](https://github.com/stefan22/shop-react-five/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter) &nbsp; [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https:/github.com/stefan22/shop-react-five.git) &nbsp; [![Lint Code Base](https://github.com/stefan22/shop-react-five/actions/workflows/super-linter.yml/badge.svg)](https://github.com/stefan22/shop-react-five/actions/workflows/super-linter.yml)
 
 
 > in-progress :turtle: - we're all turtles
