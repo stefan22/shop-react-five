@@ -2,15 +2,20 @@
 
 in-progress :turtle:
 
+<br />
+
+#### To do
+
+- Need product data w/images
 
 
 
-
-
-
+<br /><br />
 
 
 ### Initial layout
 
+----
 
-![](./src/images/screenshots/desktop1.png)
+
+![](/public/images/screenshots/desktop1.png)
