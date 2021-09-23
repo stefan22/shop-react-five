@@ -37,24 +37,9 @@
 
 
 <br />
- 
-
-
-
-
-
-
-
-
 <br /> <br />
 
 
-
-
-
-
-
-<br /><br />
 
 
 ### Initial layout  :rocket:
