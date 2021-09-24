@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import './styles.scss';
 
 const MenuItem = ({
-  title,
+  name,
   imageUrl,
   size,
   linkUrl,
@@ -22,7 +22,7 @@ const MenuItem = ({
     }`}
   >
     <div className="content-item">
-      <h1 className="content-item__title">{title}</h1>
+      <h1 className="content-item__title">{name}</h1>
       <span className="content-item__subtitle">
         SHOP NOW
       </span>
