@@ -1,34 +1,34 @@
-export const categories = [
+export const CATEGORIES_DATA = [
   {
-    title: 'HATS',
+    name: 'HATS',
     imageUrl: 'images/hat3-men.jpg',
     id: 1,
     size: 'regular',
     linkUrl: 'shop/hats',
   },
   {
-    title: 'JACKETS',
+    name: 'JACKETS',
     imageUrl: 'images/jax8.jpg',
     id: 2,
     size: 'regular',
     linkUrl: 'shop/jackets',
   },
   {
-    title: 'SNEAKERS',
+    name: 'SNEAKERS',
     imageUrl: 'images/con1.jpg',
     id: 3,
     size: 'regular',
     linkUrl: 'shop/sneakers',
   },
   {
-    title: 'WOMEN',
+    name: 'WOMEN',
     imageUrl: 'images/women-selfie.jpg',
     size: 'large',
     id: 4,
     linkUrl: 'shop/women',
   },
   {
-    title: 'MEN',
+    name: 'MEN',
     imageUrl: 'images/sh2.jpg',
     size: 'large',
     id: 5,
