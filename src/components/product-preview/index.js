@@ -4,7 +4,12 @@ import './styles.scss';
 const ProductPreview = ({ id, name, price, imageUrl }) => (
   <div key={id} className="product-preview">
     <div className="image-preview">
-      <img src={imageUrl} alt={name} width="300" height="350" />
+      <img
+        src={imageUrl}
+        alt={name}
+        width="300"
+        height="350"
+      />
     </div>
     <div className="product-footer">
       <span className="product-footer__name">{name}</span>
@@ -13,4 +18,4 @@ const ProductPreview = ({ id, name, price, imageUrl }) => (
   </div>
 );
 
-export default ProductPreview
+export default ProductPreview;

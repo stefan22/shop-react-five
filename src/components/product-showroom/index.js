@@ -17,14 +17,12 @@ const ProductShowroom = ({ title, products }) => {
   };
 
   return (
-   
-      <div className="products-showroom">
-        <h1 className="products-showroom__title">{title}</h1>
-        <div className="products-showroom__row">
-          {getProductPreview(title)}
-        </div>
+    <div className="products-showroom">
+      <h1 className="products-showroom__title">{title}</h1>
+      <div className="products-showroom__row">
+        {getProductPreview(title)}
       </div>
- 
+    </div>
   );
 };
 
