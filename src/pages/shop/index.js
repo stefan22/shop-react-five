@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PRODUCTS_DATA } from '../../helpers/products.data';
-import ProductShowroom from '../../components/product-showroom';
+import ProductsShowroom from '../../components/products-showroom';
 import './styles.scss';
 
 class ShopPage extends Component {
@@ -18,7 +18,7 @@ class ShopPage extends Component {
     return (
       <div className="shop-page">
         {categories.map((itm, idx) => (
-          <ProductShowroom
+          <ProductsShowroom
             key={idx}
             title={itm}
             products={products}

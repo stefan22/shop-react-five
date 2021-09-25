@@ -8,7 +8,7 @@ export const CATEGORIES_DATA = [
   },
   {
     name: 'JACKETS',
-    imageUrl: 'images/jax8.jpg',
+    imageUrl: 'images/jax10.jpg',
     id: 2,
     size: 'regular',
     linkUrl: 'shop/jackets',
