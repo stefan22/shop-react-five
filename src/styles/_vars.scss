@@ -33,6 +33,8 @@
   --fontWeight-black: 900;
 
   /* font-size */
+  --fontSize-root: 16px;
+
   --fontSize-03: 0.81rem;
   --fontSize-02: 0.87rem;
   --fontSize-01: 0.92rem;
@@ -62,8 +64,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+
+
   body {
-    font-family: var(----fontFamily-sans);
+    font-family: var(--fontFamily-sans);
     font-size: var(--fontSize-1);
     color: var(--color-text);
     width: 100%;
