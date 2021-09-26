@@ -29,7 +29,7 @@
 ----
 
 
-![](/public/images/screenshots/desktop1.png)
+![](/public/images/screenshots/home-page.png)
 
 
 
