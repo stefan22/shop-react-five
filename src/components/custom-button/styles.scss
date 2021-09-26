@@ -19,13 +19,16 @@
 
     .border {
       position: absolute;
-      left: 0;
+      left: 115px;
       top: 0;
       fill: transparent;
       stroke: rgb(255, 255, 255);
       stroke-dasharray: 150 480;
       stroke-dashoffset: 150;
       transition: 1s ease-in-out;
+      @media screen and (min-width: 1281px) {
+        left: 0;
+      }
     }
 
     span {
