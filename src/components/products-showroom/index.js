@@ -3,7 +3,7 @@ import ProductPreview from '../product-preview';
 import './styles.scss';
 
 const ProductsShowroom = ({ title, products }) => {
-console.log('products ',products)
+
   return (
     <div className="products-showroom">
       <h1 className="products-showroom__title">{title}</h1>
