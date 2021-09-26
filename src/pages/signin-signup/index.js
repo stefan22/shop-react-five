@@ -4,7 +4,7 @@ import './styles.scss';
 
 const SignInSignUp = () => {
   return (
-    <div className="signin-signup">
+    <div className="signin-up-wrapper">
       <SignIn />
     </div>
   );
