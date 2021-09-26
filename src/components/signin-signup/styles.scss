@@ -1,5 +1,61 @@
 .sign-in {
-  width: 30vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  @media screen and (min-width: 1281px) {
+    width: 38vw;
+    h2,
+    span {
+      justify-content: flex-start !important;
+      text-align: left !important;
+    }
+  }
+  &__heading {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: var(--spacing-12);
+    @media screen and (min-width: 1281px) {
+      margin-bottom: var(--spacing-18);
+    }
+
+    h2 {
+      display: flex;
+      width: 100%;
+      text-align: center;
+      margin-left: var(--spacing-0) !important;
+      margin-right: var(--spacing-0) !important;
+      padding: 0 !important;
+      justify-content: center;
+      flex: 1 1;
+    }
+    span {
+      flex: 1 1;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-height: 410px;
+    .custom-button__wrapper {
+      left: 0;
+      bottom: 0;
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      @media screen and (min-width: 1281px) {
+        width: 160px;
+        height: 50px;
+      }
+    }
+  }
 }
