@@ -5,7 +5,9 @@ import './styles/main.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div className="main-wrapper">
+      <App />
+    </div>
   </React.StrictMode>,
   document.getElementById('root'),
 );

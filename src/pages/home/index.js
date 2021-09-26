@@ -3,8 +3,8 @@ import Directory from '../../components/directory';
 import './styles.scss';
 
 const HomePage = () => (
-  <div className="home-page">
-    <div className="home-page--wrapper">
+  <div className="page-wrapper">
+    <div className="page-wrapper__home">
       <Directory />
     </div>
   </div>

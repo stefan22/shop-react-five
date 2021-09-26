@@ -11,27 +11,9 @@
 <br />
 
 
-## Tasks
 
 
-1. [ ] main navigation
 
-   
-2. [ ] complete folders 
-
-3. [ ] base styles / vars
-
-4. [ ] products data/ images
-
-5. [x] mens products courtesy of NorthFace
-
-6. [ ] a logo
-
-7. [ ] signin Firebase
-
-8. [ ] Firestore db
-
-9. [ ] git action 
 
 
 

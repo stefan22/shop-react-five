@@ -1,14 +1,14 @@
-.home-page {
+.page-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 2rem 3rem;
-  @media screen and (max-width: 575px) {
-    padding: 2rem 0;
-  }
-  &--wrapper {
+  width: 100%;
+  height: 100%;
+
+  &__home {
     display: flex;
     width: 100%;
     height: auto;
   }
+
 }
+
