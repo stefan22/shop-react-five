@@ -1,6 +1,10 @@
 @import './reset';
 @import './vars';
+@import './_base.scss';
 
-body {
-  font-family: 'Be Vietnam Pro', sans-serif;
+*,
+:after,
+:before {
+  box-sizing: border-box;
 }
+
