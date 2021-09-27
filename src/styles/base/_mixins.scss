@@ -1,0 +1,15 @@
+/* mixins */
+
+@mixin flex-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+@mixin shrinkLabel {
+  top: 10px;
+  font-size: var(--fontSize-01);
+  font-weight: var(--fontWeight-semibold);
+  color: var(--color-red);
+}
