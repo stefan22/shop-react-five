@@ -3,14 +3,12 @@
 .home-wrapper {
   @include flex-wrapper();
   h1 {
-    line-height: var(--lineHeight-normal);
+    margin-bottom: var(--spacing-12) ;
     @media screen and (min-width: 1281px) {
-      line-height: inherit;
+      margin-bottom: var(--spacing-16);
+      text-align: center;
     }
   }
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: var(--spacing-16) !important;
-}
+

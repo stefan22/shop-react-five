@@ -6,10 +6,9 @@
   margin-bottom: 30px;
   &__title {
     @media screen and (min-width: 1281px) {
-      text-align: center;
       width: 100%;
       display: flex;
-      margin-bottom: var(--spacing-16) !important;
+      margin-bottom: var(--spacing-16);
       justify-content: flex-start;
     }
   }
@@ -18,13 +17,12 @@
 
   &__row {
     display: flex;
-    flex-wrap: wrap;
-
-    justify-content: space-between;
-    @media screen and (max-width: 710px) {
-      justify-content: center;
-      width: 100%;
-      margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: 1281px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
 }
