@@ -3,7 +3,7 @@
 .sign-in {
   @include flex-wrapper();
   margin: 0 auto;
-  
+
   @media screen and (min-width: 1281px) {
     width: 38vw;
     h1,
@@ -12,7 +12,6 @@
       text-align: left !important;
     }
   }
-
 
   &__heading {
     display: flex;

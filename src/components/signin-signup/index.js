@@ -52,9 +52,7 @@ class SignIn extends React.Component {
             label="password"
             required
           />
-          <CustomButton 
-            svg={"true"}
-            type="submit">
+          <CustomButton svg={'true'} type="submit">
             {' '}
             Sign in{' '}
           </CustomButton>
@@ -65,9 +63,6 @@ class SignIn extends React.Component {
           >
             SIGNIN WITH GOOGLE
           </button>
-
-
-         
         </form>
       </div>
     );

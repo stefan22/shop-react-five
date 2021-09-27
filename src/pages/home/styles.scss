@@ -1,13 +1,16 @@
 @import '../../styles/base/mixins';
 
-
 .home-wrapper {
   @include flex-wrapper();
-  
+  h1 {
+    line-height: var(--lineHeight-normal);
+    @media screen and (min-width: 1281px) {
+      line-height: inherit;
+    }
+  }
 }
 
 h1 {
   text-align: center;
   margin-bottom: var(--spacing-16) !important;
 }
-
