@@ -57,7 +57,8 @@
     font-size: 22px;
     color: #4a4a4a;
     letter-spacing: 0.5px;
-    @media screen and (max-width: 1024px) {
+    @media screen and(min-width: 1281px) {
+      margin-bottom: var(--spacing-1) !important;
       letter-spacing: 1px;
       font-size: 18px;
     }
@@ -65,7 +66,7 @@
   &__subtitle {
     font-weight: lighter;
     font-size: 16px;
-    @media screen and (max-width: 1024px) {
+    @media screen and (min-width: 1281px) {
       font-size: 12px;
     }
   }

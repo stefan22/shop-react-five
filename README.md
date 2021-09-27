@@ -29,7 +29,7 @@
 ----
 
 
-![](/public/images/screenshots/home-page.png)
+![](/public/images/screenshots/3-ss-dk-signin.png)
 
 
 

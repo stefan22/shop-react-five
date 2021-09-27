@@ -30,3 +30,6 @@ yarn-error.log*
 .env
 Icon\r
 Icon
+
+
+src/components/firebase/firebase-api/
