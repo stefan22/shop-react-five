@@ -1,25 +1,33 @@
+@import '../../styles/base/mixins';
+
 .sign-in {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
+  @include flex-wrapper();
   margin: 0 auto;
+  
   @media screen and (min-width: 1281px) {
     width: 38vw;
-    h2,
+    h1,
     span {
       justify-content: flex-start !important;
       text-align: left !important;
     }
   }
+
+
   &__heading {
     display: flex;
     width: 100%;
     flex-direction: column;
     margin-bottom: var(--spacing-12);
+    h1 {
+      line-height: var(--lineHeight-normal);
+      margin-bottom: var(--spacing-12) !important;
+    }
     @media screen and (min-width: 1281px) {
       margin-bottom: var(--spacing-18);
+      h1 {
+        line-height: inherit;
+      }
     }
 
     h2 {
@@ -28,14 +36,15 @@
       text-align: center;
       margin-left: var(--spacing-0) !important;
       margin-right: var(--spacing-0) !important;
+      margin-bottom: var(--spacing-6) !important;
       padding: 0 !important;
       justify-content: center;
-      flex: 1 1;
     }
     span {
       flex: 1 1;
       width: 100%;
       text-align: center;
+      color: var(--color-gray) !important;
     }
   }
 
@@ -45,17 +54,59 @@
     width: 100%;
     height: 100%;
     position: relative;
-    min-height: 410px;
+    min-height: 470px;
+    margin-bottom: var(--spacing-20);
     .custom-button__wrapper {
       left: 0;
-      bottom: 0;
+      bottom: -50px;
       justify-content: center;
       display: flex;
       width: 100%;
       @media screen and (min-width: 1281px) {
         width: 160px;
         height: 50px;
+        bottom: 60px;
       }
     }
+  }
+}
+
+.signin-with-google {
+  height: 50px;
+  font-size: 1rem;
+  background: white;
+  border: 1px solid #333;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 210px;
+  color: #333;
+  letter-spacing: 0.15px;
+  margin: 0 auto;
+  margin-top: 4rem;
+  padding: 5px;
+}
+
+@media screen and (min-width: 1281px) {
+  .signin-with-google {
+    width: 210px;
+    height: 50px;
+    font-size: 1rem;
+    background: white;
+    border: 1px solid #333;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 185px;
+    color: #333;
+    top: 35px;
+    margin: 0;
+    letter-spacing: 0.15px;
   }
 }
