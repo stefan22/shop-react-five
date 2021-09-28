@@ -10,6 +10,18 @@
 
 <br />
 
+I see what must be done:
+-----
+
+
+1. [ ] A firebase module interface to deal with products/data, including auth provider methods for authenticating users, as well as user signin/register etc. [Context API]
+  
+2. [ ] A redux store  - users - products etc.
+
+
+
+
+
 
 
 
@@ -38,5 +50,7 @@
 
 
 
+
+p- 380 x 491
 
 

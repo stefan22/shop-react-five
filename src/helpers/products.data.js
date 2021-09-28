@@ -3,7 +3,7 @@ export const PRODUCTS_DATA = {
     {
       id: 1,
       name: 'Hats cat prod',
-      imageUrl: '/images/all-products/hats/ha1.png',
+      imageUrl: '/images/all-products/hats/ha11.png',
       price: 65,
       cat: 'hats',
     },
@@ -11,28 +11,22 @@ export const PRODUCTS_DATA = {
     {
       id: 3,
       name: 'Hats cat prod',
-      imageUrl: '/images/all-products/hats/ha3.png',
+      imageUrl: '/images/all-products/hats/ha23.png',
       price: 35,
       cat: 'hats',
     },
     {
       id: 2,
       name: 'Hats cat prod',
-      imageUrl: '/images/all-products/hats/ha1.png',
+      imageUrl: '/images/all-products/hats/ha5.png',
       price: 25,
       cat: 'hats',
     },
-    {
-      id: 5,
-      name: 'Hats cat prod',
-      imageUrl: '/images/all-products/hats/ha5.png',
-      price: 48,
-      cat: 'hats',
-    },
+   
     {
       id: 4,
       name: 'Hats cat prod',
-      imageUrl: '/images/all-products/hats/ha1.png',
+      imageUrl: '/images/all-products/hats/ha22.png',
       price: 25,
       cat: 'hats',
     },
@@ -47,6 +41,13 @@ export const PRODUCTS_DATA = {
       cat: 'women',
     },
     {
+      id: 210,
+      name: 'Women cat prod',
+      imageUrl: '/images/all-products/women/wom6.jpg',
+      price: 135,
+      cat: 'women',
+    },
+    {
       id: 22,
       name: 'Women cat prod',
       imageUrl: '/images/all-products/women/wom4.png',
@@ -57,57 +58,37 @@ export const PRODUCTS_DATA = {
     {
       id: 21,
       name: 'Women cat prod',
-      imageUrl: '/images/all-products/women/wom3.jpg',
+      imageUrl: '/images/all-products/women/wom6.jpg',
       price: 135,
       cat: 'women',
     },
 
-    {
-      id: 20,
-      name: 'Women cat prod',
-      imageUrl: '/images/all-products/women/wom2.jpg',
-      price: 118,
-      cat: 'women',
-    },
-
-    {
-      id: 23,
-      name: 'Women cat prod',
-      imageUrl: '/images/all-products/women/wom4.png',
-      price: 125,
-      cat: 'women',
-    },
+   
   ],
 
   Jackets: [
     {
       id: 7,
       name: 'Jackets cat prod',
-      imageUrl: '/images/all-products/jackets/jack1.png',
+      imageUrl: '/images/all-products/jackets/jack24.jpg',
       price: 125,
       cat: 'jackets',
     },
     {
       id: 9,
       name: 'Jackets cat prod',
-      imageUrl: '/images/all-products/jackets/jack5.png',
+      imageUrl: '/images/all-products/jackets/jack25.jpeg',
       price: 110,
       cat: 'jackets',
     },
     {
       id: 8,
       name: 'Jackets cat prod',
-      imageUrl: '/images/all-products/jackets/jack2.png',
+      imageUrl: '/images/all-products/jackets/jack26.jpeg',
       price: 100,
       cat: 'jackets',
     },
-    {
-      id: 101,
-      name: 'Jackets cat prod',
-      imageUrl: '/images/all-products/jackets/jack4.png',
-      price: 25,
-      cat: 'jackets',
-    },
+   
     {
       id: 119,
       name: 'Jackets cat prod',
@@ -118,49 +99,46 @@ export const PRODUCTS_DATA = {
   ],
 
   Sneakers: [
+   
     {
-      id: 25,
+      id: 27,
       name: 'Sneakers cat prod',
-      imageUrl: '/images/all-products/sneakers/sneak1.jpeg',
-      price: 125,
+      imageUrl: '/images/all-products/sneakers/sneak32.jpg',
+      price: 155,
       cat: 'sneakers',
     },
     {
       id: 26,
       name: 'Sneakers cat prod',
-      imageUrl: '/images/all-products/sneakers/sneak2.jpg',
+      imageUrl: '/images/all-products/sneakers/sneak3.jpeg',
       price: 148,
       cat: 'sneakers',
     },
+    
 
     {
       id: 28,
       name: 'Sneakers cat prod',
-      imageUrl: '/images/all-products/sneakers/sneak4.jpg',
+      imageUrl: '/images/all-products/sneakers/sneak7.jpg',
       price: 125,
       cat: 'sneakers',
     },
     {
-      id: 27,
+      id: 25,
       name: 'Sneakers cat prod',
-      imageUrl: '/images/all-products/sneakers/sneak1.jpeg',
-      price: 155,
+      imageUrl: '/images/all-products/sneakers/sneak2.jpg',
+      price: 125,
       cat: 'sneakers',
     },
-    {
-      id: 29,
-      name: 'Sneakers cat prod',
-      imageUrl: '/images/all-products/sneakers/sneak8.jpg',
-      price: 167,
-      cat: 'sneakers',
-    },
+   
+   
   ],
 
   Men: [
     {
       id: 13,
       name: 'Men cat product',
-      imageUrl: '/images/all-products/men/nf4.jpeg',
+      imageUrl: '/images/all-products/men/men2.png',
       price: 35,
       cat: 'men',
     },
@@ -176,7 +154,7 @@ export const PRODUCTS_DATA = {
     {
       id: 16,
       name: 'Men cat product',
-      imageUrl: '/images/all-products/men/nf4.jpeg',
+      imageUrl: '/images/all-products/men/men1.png',
       price: 35,
       cat: 'men',
     },
@@ -188,12 +166,6 @@ export const PRODUCTS_DATA = {
       price: 185,
       cat: 'men',
     },
-    {
-      id: 15,
-      name: 'Men cat product',
-      imageUrl: '/images/all-products/men/nf3.jpeg',
-      price: 125,
-      cat: 'men',
-    },
+   
   ],
 };
