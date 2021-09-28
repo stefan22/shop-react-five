@@ -10,6 +10,18 @@
 
 <br />
 
+A new plan appears
+--------------
+
+Need 2 things
+
+1. [ ] A firebase interface to fetch data and signin/up users      
+2. [ ] A redux store 
+
+
+
+
+
 
 
 
