@@ -18,7 +18,7 @@
     width: 100%;
     min-height: 100%;
     margin: 0 auto;
-    @media screen and (min-width: 1281px) {
+    @media screen and (min-width: 890px) {
       max-width: 90%;
     }
   }
@@ -30,7 +30,7 @@
     font-size: var(--fontSize-5);
     color: var(--color-heading);
     letter-spacing: var(--spacing-less-one);
-    @media screen and (min-width: 1281px) {
+    @media screen and (min-width: 890px) {
       font-size: var(--fontSize-6);
     }
   }
@@ -42,13 +42,14 @@
 
   h3 {
     font-size: var(--fontSize-3);
+    color: var(--color-red);
     font-weight: var(--fontWeight-normal);
   }
 
   p {
     line-height: var(--lineHeight-relaxed);
     font-size: var(--fontSize-1);
-    @media screen and (min-width: 1281px) {
+    @media screen and (min-width: 890px) {
       line-height: var(--lineHeight-normal);
       font-size: var(--fontSize-2);
     }

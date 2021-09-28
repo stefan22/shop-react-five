@@ -10,13 +10,13 @@
 
 <br />
 
-A new plan appears
---------------
+I see what must be done:
+-----
 
-Need 2 things
 
-1. [ ] A firebase interface to fetch data and signin/up users      
-2. [ ] A redux store 
+1. [ ] A firebase module interface to deal with products/data, including auth provider methods for authenticating users, as well as user signin/register etc. [Context API]
+  
+2. [ ] A redux store  - users - products etc.
 
 
 
@@ -50,5 +50,7 @@ Need 2 things
 
 
 
+
+p- 380 x 491
 
 
