@@ -1,4 +1,4 @@
-const FIREBASE_API = {
+export const FIREBASE_API = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_PROJECT_ID,
@@ -9,4 +9,3 @@ const FIREBASE_API = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-export default FIREBASE_API;
