@@ -102,9 +102,6 @@ section {
   display: block;
 }
 
-body {
-  line-height: 1;
-}
 ol,
 ul {
   list-style: none;
@@ -126,18 +123,6 @@ table {
   border-spacing: 0;
 }
 
-/* Updates */
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 a,
 del,
 ins {
@@ -156,6 +141,3 @@ input,
 button {
   outline: 0;
 }
-
-
-

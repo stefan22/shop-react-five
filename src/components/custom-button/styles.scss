@@ -9,7 +9,7 @@
     letter-spacing: 0.5px;
     line-height: 50px;
     padding: 0 35px;
-    background-color: black;
+    background-color: var(--color-blue);
     text-transform: uppercase;
     font-weight: bold;
     border: 1px solid transparent;
@@ -40,7 +40,7 @@
     &:hover {
       background-color: white;
       color: black;
-      border: 1px solid black;
+      border: 1px solid var(--color-subheading);
       background-color: transparent;
       span {
         color: #212121;
@@ -51,6 +51,3 @@
     }
   }
 }
-
-
-

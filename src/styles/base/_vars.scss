@@ -2,21 +2,22 @@
 @import '../theme/fonts';
 
 :root {
-  
   html {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     line-height: var(--lineHeight-normal);
-    font-size: var(--fontSize-root);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     font-family: var(--fontFamily-sans);
-    font-size: var(--fontSize-1);
+    font-size: var(--fontSize-root);
     color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     width: 100%;
+    min-height: 100%;
     margin: 0 auto;
-    padding: var(--spacing-0);
     @media screen and (min-width: 1281px) {
       max-width: 90%;
     }
@@ -24,57 +25,32 @@
 
   /* Heading */
 
-  h3,
-  h5,
-  h6 {
-    font-family: var(--fontFamily-sans);
-    margin-top: var(--spacing-12);
-    margin-bottom: var(--spacing-6);
-    line-height: var(--lineHeight-tight);
-    letter-spacing: var(--spacing-1);
-  }
-
-  h2,
-  h4,
-  h5,
-  h6 {
-    font-weight: var(--fontWeight-medium);
-    color: var(--color-heading);
-  }
-
   h1 {
     font-weight: var(--fontWeight-medium);
-    font-size: var(--fontSize-6);
+    font-size: var(--fontSize-5);
     color: var(--color-heading);
     letter-spacing: var(--spacing-less-one);
+    @media screen and (min-width: 1281px) {
+      font-size: var(--fontSize-6);
+    }
   }
 
   h2 {
     font-size: var(--fontSize-4);
     color: var(--color-subheading);
-    margin-bottom: var(--spacing-0);
-    font-family: var(--fontFamily-sans);
-    border-bottom: var(--spacing-0);
-    padding: var(--spacing-2) var(--spacing-1);
-    margin: var(--spacing-12) var(--spacing-10);
   }
 
   h3 {
     font-size: var(--fontSize-3);
     font-weight: var(--fontWeight-normal);
-    margin-top: var(--spacing-24);
-    margin-bottom: var(--spacing-12);
-    padding-bottom: var(--spacing-0);
   }
 
   p {
     line-height: var(--lineHeight-relaxed);
-    font-size: var(--fontSize-2);
-    font-family: var(--fontFamily-sans);
-    margin: var(--spacing-0) var(--spacing-0)
-      var(--spacing-8) var(--spacing-0);
-    padding: var(--spacing-0);
+    font-size: var(--fontSize-1);
+    @media screen and (min-width: 1281px) {
+      line-height: var(--lineHeight-normal);
+      font-size: var(--fontSize-2);
+    }
   }
 }
-
-

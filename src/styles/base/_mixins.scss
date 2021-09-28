@@ -10,6 +10,6 @@
 @mixin shrinkLabel {
   top: 10px;
   font-size: var(--fontSize-01);
-  font-weight: var(--fontWeight-semibold);
+  font-weight: var(--fontWeight-normal);
   color: var(--color-red);
 }

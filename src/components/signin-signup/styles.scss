@@ -3,48 +3,44 @@
 .sign-in {
   @include flex-wrapper();
   margin: 0 auto;
-  
+
   @media screen and (min-width: 1281px) {
     width: 38vw;
-    h1,
-    span {
-      justify-content: flex-start !important;
-      text-align: left !important;
-    }
   }
-
 
   &__heading {
     display: flex;
     width: 100%;
     flex-direction: column;
+    align-items: center;
     margin-bottom: var(--spacing-12);
-    h1 {
-      line-height: var(--lineHeight-normal);
-      margin-bottom: var(--spacing-12) !important;
-    }
     @media screen and (min-width: 1281px) {
-      margin-bottom: var(--spacing-18);
-      h1 {
-        line-height: inherit;
+      align-items: flex-start;
+    }
+    h1 {
+      margin-bottom: var(--spacing-12);
+      text-align: center;
+      @media screen and (min-width: 1281px) {
+        margin-bottom: var(--spacing-10);
+      }
+    }
+    h3 {
+      color: var(--color-red);
+      width: 100%;
+      text-align: center;
+      @media screen and (min-width: 1281px) {
+        text-align: left;
       }
     }
 
-    h2 {
-      display: flex;
-      width: 100%;
-      text-align: center;
-      margin-left: var(--spacing-0) !important;
-      margin-right: var(--spacing-0) !important;
-      margin-bottom: var(--spacing-6) !important;
-      padding: 0 !important;
-      justify-content: center;
-    }
     span {
       flex: 1 1;
       width: 100%;
       text-align: center;
-      color: var(--color-gray) !important;
+      color: var(--color-gray);
+      @media screen and (min-width: 1281px) {
+        text-align: left;
+      }
     }
   }
 
@@ -75,7 +71,7 @@
   height: 50px;
   font-size: 1rem;
   background: white;
-  border: 1px solid #333;
+  border: 1px solid var(--color-subheading);
   font-weight: 400;
   display: flex;
   flex-direction: row;
@@ -83,7 +79,7 @@
   align-items: center;
   width: 100%;
   max-width: 210px;
-  color: #333;
+  color: var(--color-heading);
   letter-spacing: 0.15px;
   margin: 0 auto;
   margin-top: 4rem;
@@ -96,7 +92,6 @@
     height: 50px;
     font-size: 1rem;
     background: white;
-    border: 1px solid #333;
     font-weight: 400;
     display: flex;
     flex-direction: column;
@@ -104,9 +99,16 @@
     align-items: center;
     position: relative;
     left: 185px;
-    color: #333;
     top: 35px;
     margin: 0;
     letter-spacing: 0.15px;
+    transition: all 0.4s ease-in 25ms;
+
+    &:hover {
+      background-color: var(--color-red);
+      color: var(--color-white);
+      border-color: 1px solid var(--color-darkred);
+      box-shadow: none;
+    }
   }
 }
