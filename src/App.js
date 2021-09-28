@@ -9,18 +9,19 @@ import Header from './components/header';
 import HomePage from './pages/home';
 import ShopPage from './pages/shop';
 import SignInSignUp from './pages/signin-signup';
+import { ROUTES } from './helpers/constants/routes'
 
 function App() {
   return (
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/shop" component={ShopPage} />
+        <Route exact path={ROUTES.home} component={HomePage} />
+        <Route exact path={ROUTES.shop} component={ShopPage} />
 
         <Route
           exact
-          path="/signin"
+          path={ROUTES.signin}
           component={SignInSignUp}
         />
       </Switch>
