@@ -1,5 +1,5 @@
 export const PRODUCTS_DATA = {
-  hats: [
+  Hats: [
     {
       id: 1,
       name: 'Hats cat prod',
@@ -38,7 +38,7 @@ export const PRODUCTS_DATA = {
     },
   ],
 
-  women: [
+  Women: [
     {
       id: 19,
       name: 'Women cat prod',
@@ -79,7 +79,7 @@ export const PRODUCTS_DATA = {
     },
   ],
 
-  jackets: [
+  Jackets: [
     {
       id: 7,
       name: 'Jackets cat prod',
@@ -117,7 +117,7 @@ export const PRODUCTS_DATA = {
     },
   ],
 
-  sneakers: [
+  Sneakers: [
     {
       id: 25,
       name: 'Sneakers cat prod',
@@ -156,7 +156,7 @@ export const PRODUCTS_DATA = {
     },
   ],
 
-  men: [
+  Men: [
     {
       id: 13,
       name: 'Men cat product',

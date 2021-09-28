@@ -1,5 +1,6 @@
 .product-preview {
   flex: 0 1;
+  width: 100%;
   display: flex;
   position: relative;
   cursor: zoom-in;
@@ -7,12 +8,18 @@
   flex-direction: column;
   justify-content: flex-start;
   height: max-content;
+  @media screen and (min-width: 630px) {
+    flex: 0 1;
+  }
 
   .image-preview {
     display: flex;
     width: 100%;
     overflow: hidden;
-    flex: 0 1;
+    flex: 1 1;
+    @media screen and (min-width: 630px) {
+      flex: 0 1;
+    }
 
     img {
       display: flex;
@@ -48,7 +55,7 @@
   &__price {
     display: flex;
     justify-content: center;
-    
+
     padding-bottom: 10px;
     color: orangered;
     font-weight: 500;
