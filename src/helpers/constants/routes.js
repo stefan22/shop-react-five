@@ -2,16 +2,14 @@
  *  initial ROUTES
  */
 
-export const ROUTES = {
-  home: '/',
-  shop: '/shop',
-  signin: '/signin',
-  signup: '/signup',
-  account: '/account',
-  admin: '/admin/',
-  hats: '/shop/hats',
-  jackets: '/shop/jackets',
-  sneakers: '/shop/sneakers',
-  women: '/shop/women',
-  men: '/shop/men',
-};
+export const HOME = '/';
+export const SHOP = '/shop';
+export const SIGNIN = '/signin';
+export const SIGNUP = '/signup';
+export const ACCOUNT = '/account';
+export const ADMIN = '/admin';
+export const HATS = '/shop/hats';
+export const JACKETS = '/shop/jackets';
+export const SNEAKERS = '/shop/sneakers';
+export const WOMEN = '/shop/women';
+export const MEN = '/shop/men';

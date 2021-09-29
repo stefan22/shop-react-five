@@ -1,6 +1,6 @@
 .custom-button__wrapper {
   width: 160px;
-  height: 50px;
+  height: auto;
   position: absolute;
   left: 300px;
   .custom-button {
@@ -16,6 +16,11 @@
     cursor: pointer;
     outline: none;
     transition: 1s ease-in-out;
+    &.disabled {
+      cursor: not-allowed;
+      background-color: var(--color-lightgray);
+      pointer-events: none;
+    }
 
     .border {
       position: absolute;

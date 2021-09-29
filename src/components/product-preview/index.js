@@ -7,7 +7,7 @@ const ProductPreview = ({ id, name, price, imageUrl }) => (
       <img
         src={imageUrl}
         alt={name}
-        width="350"
+        width="343"
         height="auto"
       />
     </div>

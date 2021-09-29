@@ -22,7 +22,7 @@ export const PRODUCTS_DATA = {
       price: 25,
       cat: 'hats',
     },
-   
+
     {
       id: 4,
       name: 'Hats cat prod',
@@ -62,8 +62,6 @@ export const PRODUCTS_DATA = {
       price: 135,
       cat: 'women',
     },
-
-   
   ],
 
   Jackets: [
@@ -88,7 +86,7 @@ export const PRODUCTS_DATA = {
       price: 100,
       cat: 'jackets',
     },
-   
+
     {
       id: 119,
       name: 'Jackets cat prod',
@@ -99,7 +97,6 @@ export const PRODUCTS_DATA = {
   ],
 
   Sneakers: [
-   
     {
       id: 27,
       name: 'Sneakers cat prod',
@@ -114,7 +111,6 @@ export const PRODUCTS_DATA = {
       price: 148,
       cat: 'sneakers',
     },
-    
 
     {
       id: 28,
@@ -130,8 +126,6 @@ export const PRODUCTS_DATA = {
       price: 125,
       cat: 'sneakers',
     },
-   
-   
   ],
 
   Men: [
@@ -166,6 +160,5 @@ export const PRODUCTS_DATA = {
       price: 185,
       cat: 'men',
     },
-   
   ],
 };

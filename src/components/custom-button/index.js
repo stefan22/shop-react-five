@@ -1,9 +1,20 @@
 import React from 'react';
 import './styles.scss';
 
-const CustomButton = ({ children, ...otherProps }) => (
+const CustomButton = ({
+  disabled,
+  children,
+  ...otherProps
+}) => (
   <div className="custom-button__wrapper">
-    <button className="custom-button" {...otherProps}>
+    <button
+      className={`${
+        disabled
+          ? 'custom-button disabled'
+          : 'custom-button'
+      }`}
+      {...otherProps}
+    >
       <svg
         width="160px"
         height="50px"
