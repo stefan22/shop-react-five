@@ -1,13 +1,14 @@
 import React from 'react';
 import { SignUp } from '../../components/signin-signup/';
+//fb
+import { withFirebase } from '../../firebase/';
+//styles
 import './styles.scss';
 
-const Signup = () => {
-  return (
-    <div className="signup-wrapper">
-      <SignUp />
-    </div>
-  );
-};
+const Signup = props => (
+  <div className="signup-wrapper">
+    <SignUp {...props} />
+  </div>
+);
 
-export default Signup;
+export default withFirebase(Signup);
