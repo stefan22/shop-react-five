@@ -1,6 +1,7 @@
 import React from 'react';
 import FormInput from '../form-input';
 import CustomButton from '../custom-button';
+import FormLink from './form-link';
 
 import './styles.scss';
 
@@ -51,18 +52,21 @@ class SignIn extends React.Component {
             label="password"
             required
           />
+
           <CustomButton svg={'true'} type="submit">
             {' '}
             Sign in{' '}
           </CustomButton>
 
-          <button
-            className="signin-with-google"
-           
-          >
+          <button className="signin-with-google">
             SIGNIN WITH GOOGLE
           </button>
         </form>
+
+        <FormLink
+          intro={"Don't have an account yet? "}
+          routePath={'/signup'}
+        />
       </div>
     );
   }

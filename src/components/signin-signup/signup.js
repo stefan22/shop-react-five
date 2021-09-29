@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import FormInput from '../form-input';
 import CustomButton from '../custom-button';
-
-import { ROUTES } from '../../helpers/constants/routes';
+import FormLink from './form-link';
 
 const INITIAL_STATE = {
   username: '',
@@ -21,7 +19,20 @@ class SignUp extends Component {
     };
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      username: '',
+      email: '',
+      passwordOne: '',
+      passwordTwo: '',
+    });
+  };
 
+  handleChange = event =>
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
 
   render() {
     const {
@@ -42,35 +53,34 @@ class SignUp extends Component {
       <div className="sign-in signup">
         <div className="sign-in__heading">
           <h1>Signing up is Easy!</h1>
-          <h3>Your name, email and password and you're done!</h3>
+          <h3>
+            Your name, email and password and you're done!
+          </h3>
         </div>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput
             name="username"
             type="text"
-            placeholder="Full Name"
+            label="Full Name"
             handleChange={this.handleChange}
             value={username}
-          
             required
           />
 
           <FormInput
             name="email"
-            type="text"
-            placeholder="Email Address"
+            type="email"
             handleChange={this.handleChange}
             value={email}
-           
+            label="Email"
             required
           />
-
           <FormInput
             name="passwordOne"
             type="password"
-            value={passwordOne}
             handleChange={this.handleChange}
+            value={passwordOne}
             label="Password"
             required
           />
@@ -78,35 +88,25 @@ class SignUp extends Component {
           <FormInput
             name="passwordTwo"
             type="password"
-            value={passwordTwo}
-            placeholder="Confirm Password"
             handleChange={this.handleChange}
-            //label="Confirm Password"
+            value={passwordTwo}
+            label="Confirm Password"
             required
           />
 
-          <CustomButton
-            disabled={formErrors}
-            svg={'true'}
-            type="submit"
-          >
+          <CustomButton disabled={formErrors} type="submit">
             Sign Up
           </CustomButton>
 
           {error && <p>{error.message}</p>}
+
+          <FormLink
+            intro={'Signin with Google instead. '}
+          />
         </form>
       </div>
     );
   }
 }
-
-// const SignupLink = () => (
-//   <p>
-//     Don't have an account?{' '}
-//     <Link to={ROUTES.signup}>Signup</Link>
-//   </p>
-// );
-
-//export { SignupLink };
 
 export default SignUp;

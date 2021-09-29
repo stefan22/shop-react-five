@@ -8,19 +8,18 @@
   flex-direction: column;
   justify-content: flex-start;
   height: max-content;
- 
 
   .image-preview {
     display: flex;
     width: 100%;
     overflow: hidden;
     flex: 1 1;
-    
+
     img {
       display: flex;
-      max-width:350px;
+      max-width: 343px;
       height: auto;
-      // margin: 0 auto;
+
       transition: transform 2s
         cubic-bezier(0.25, 0.45, 0.45, 0.95) 50ms;
       &:hover {
@@ -29,13 +28,7 @@
           opacity: 0.7;
         }
       }
-
-      
-
     }
-
-   
-
   }
 }
 
