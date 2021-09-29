@@ -16,17 +16,17 @@ const CustomButton = ({
       {...otherProps}
     >
       <svg
-        width="160px"
-        height="50px"
-        viewBox="0 0 160 50"
+        width="162px"
+        height="52px"
+        viewBox="1 1 160 50"
         className="border"
       >
         <polyline
-          points="159,1 159,59 1,59 1,1 159,1"
+          points="157,1 157,47 1,47 1,1 157,1"
           className="bg-line"
         />
         <polyline
-          points="159,1 159,59 1,59 1,1 159,1"
+          points="157,1 157,47 1,47 1,1 157,1"
           className="hl-line"
         />
       </svg>
