@@ -5,6 +5,8 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 
+import { AnimatePresence } from 'framer-motion';
+
 //comps
 import Header from './components/header';
 import HomePage from './pages/home';
@@ -18,29 +20,31 @@ function App() {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route
-          exact
-          path={ROUTES.HOME}
-          component={HomePage}
-        />
-        <Route
-          exact
-          path={ROUTES.SHOP}
-          component={ShopPage}
-        />
+      <AnimatePresence exitBeforeEnter>
+        <Switch>
+          <Route
+            exact
+            path={ROUTES.HOME}
+            component={HomePage}
+          />
+          <Route
+            exact
+            path={ROUTES.SHOP}
+            component={ShopPage}
+          />
 
-        <Route
-          exact
-          path={ROUTES.SIGNIN}
-          component={Signin}
-        />
-        <Route
-          exact
-          path={ROUTES.SIGNUP}
-          component={Signup}
-        />
-      </Switch>
+          <Route
+            exact
+            path={ROUTES.SIGNIN}
+            component={Signin}
+          />
+          <Route
+            exact
+            path={ROUTES.SIGNUP}
+            component={Signup}
+          />
+        </Switch>
+      </AnimatePresence>
     </Router>
   );
 }

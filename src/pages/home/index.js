@@ -1,12 +1,19 @@
 import React from 'react';
 import Directory from '../../components/directory';
+import { motion } from 'framer-motion';
 import './styles.home.scss';
 
 const HomePage = () => (
-  <div className="home-wrapper">
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 1 }}
+    className="home-wrapper"
+  >
     <h1>We're loaded! Browse our huge inventory!</h1>
     <Directory />
-  </div>
+  </motion.div>
 );
 
 export default HomePage;
