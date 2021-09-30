@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/mad-duck-logo.png';
 import * as ROUTES from '../../helpers/constants/routes';
+import SignOut from '../signin-signup/signout';
 
 import './styles.scss';
+
 
 const Header = () => (
   <div className="header">
@@ -30,6 +32,14 @@ const Header = () => (
         >
           SIGNIN
         </Link>
+
+        <Link
+          className="header-menu--link"
+          to={ROUTES.HOME}
+        >
+          <SignOut />
+        </Link>
+
         <Link
           className="header-menu--link"
           to={ROUTES.SIGNUP}
