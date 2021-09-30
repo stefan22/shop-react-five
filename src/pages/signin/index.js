@@ -1,11 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { withFirebase } from '../../firebase/';
+import { compose } from 'react-recompose';
 //comps
 import { SignIn } from '../../components/signin-signup/';
 //styles
 import './styles.scss';
 import { motion } from 'framer-motion';
 
-const Signin = () => {
+const Signin = props => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -14,9 +17,12 @@ const Signin = () => {
       transition={{ duration: 1 }}
       className="signin-up-wrapper"
     >
-      <SignIn />
+    <SignIn {...props} />
     </motion.div>
   );
 };
 
-export default Signin;
+export default compose(
+  withRouter,
+  withFirebase
+)(Signin);

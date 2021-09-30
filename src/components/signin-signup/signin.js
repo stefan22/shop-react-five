@@ -2,22 +2,37 @@ import React from 'react';
 import FormInput from '../form-input';
 import CustomButton from '../custom-button';
 import FormLink from './form-link';
+import * as ROUTES from '../../helpers/constants/routes';
 
 import './styles.scss';
+
+const INITIAL_STATE = {
+  email: '',
+  password: '',
+  error: null,
+}
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      ...INITIAL_STATE
     };
   }
 
   handleSubmit = event => {
+    const { email, password } = this.state;
+
+    this.props.firebase.doSignInWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        console.log(authUser);
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(ROUTES.HOME)
+      })
+
+
     event.preventDefault();
-    this.setState({ email: '', password: '' });
   };
 
   handleChange = event => {
@@ -26,7 +41,7 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, error } = this.state;
 
     return (
       <div className="sign-in">
@@ -52,6 +67,8 @@ class SignIn extends React.Component {
             label="password"
             required
           />
+
+          {error && <p id="signin-error">{error.message}</p>}
 
           <CustomButton svg={'true'} type="submit">
             {' '}
