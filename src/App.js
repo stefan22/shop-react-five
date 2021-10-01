@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { AnimatePresence } from 'framer-motion';
-import { withFirebase } from './firebase';
+import { withAuthentication } from './components/session'
 
 //comps
 import Header from './components/header';
@@ -18,27 +18,15 @@ import Signup from './pages/signup';
 import * as ROUTES from './helpers/constants/routes';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      authUser: null,
-    };
-  }
+  
 
-  componentDidMount() {
-    this.props.firebase.auth.onAuthStateChanged(
-      authUser => {
-        authUser
-          ? this.setState({ authUser })
-          : this.setState({ authUser: null });
-      },
-    );
-  }
+  
 
   render() {
     return (
+     
       <Router>
-        <Header authUser={this.state.authUser} />
+        <Header />
         <AnimatePresence exitBeforeEnter>
           <Switch>
             <Route
@@ -66,8 +54,9 @@ class App extends Component {
           </Switch>
         </AnimatePresence>
       </Router>
+    
     );
   }
 }
 
-export default withFirebase(App);
+export default withAuthentication(App);
