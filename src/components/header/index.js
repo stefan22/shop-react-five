@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/mad-duck-logo.png';
 import * as ROUTES from '../../helpers/constants/routes';
 import SignOut from '../signin-signup/signout';
+import { AuthUserContext } from '../session';
 
 import './styles.scss';
 
@@ -61,9 +62,14 @@ const authNavigation = (
   </div>
 );
 
-const Header = ({ authUser }) => (
+const Header = () => (
   <div className="header">
-    {authUser !== null ? authNavigation : nonAuthNavigation}
+    <AuthUserContext.Consumer>
+    {
+      authUser => authUser !== null ? authNavigation : nonAuthNavigation
+    
+    }
+    </AuthUserContext.Consumer>
   </div>
 );
 

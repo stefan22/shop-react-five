@@ -14,7 +14,7 @@ Todo
 -----
 
 
-1. [X] Signin/Signout/Signup working. Added Session component (Possible HOC)
+1. [X] Signin/Signout/Signup working. session/withAuthentication HOC
   
 2. [ ] A redux store  - users - products etc.
 3. [ ] Need larger images
