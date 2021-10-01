@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { AnimatePresence } from 'framer-motion';
-import { withAuthentication } from './components/session'
+import { withAuthentication } from './components/session';
 
 //comps
 import Header from './components/header';
@@ -18,13 +18,8 @@ import Signup from './pages/signup';
 import * as ROUTES from './helpers/constants/routes';
 
 class App extends Component {
-  
-
-  
-
   render() {
     return (
-     
       <Router>
         <Header />
         <AnimatePresence exitBeforeEnter>
@@ -54,7 +49,6 @@ class App extends Component {
           </Switch>
         </AnimatePresence>
       </Router>
-    
     );
   }
 }
