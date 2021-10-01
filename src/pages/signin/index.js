@@ -17,12 +17,9 @@ const Signin = props => {
       transition={{ duration: 1 }}
       className="signin-up-wrapper"
     >
-    <SignIn {...props} />
+      <SignIn {...props} />
     </motion.div>
   );
 };
 
-export default compose(
-  withRouter,
-  withFirebase
-)(Signin);
+export default compose(withRouter, withFirebase)(Signin);

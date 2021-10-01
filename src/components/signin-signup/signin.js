@@ -10,27 +10,27 @@ const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
-}
+};
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ...INITIAL_STATE
+      ...INITIAL_STATE,
     };
   }
 
   handleSubmit = event => {
     const { email, password } = this.state;
 
-    this.props.firebase.doSignInWithEmailAndPassword(email, password)
-      .then((authUser) => {
-        console.log(authUser);
+    this.props.firebase
+      .doSignInWithEmailAndPassword(email, password)
+      .then(authUser => {
+        console.log('authUser is ', authUser);
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME)
-      })
-
+        this.props.history.push(ROUTES.HOME);
+      });
 
     event.preventDefault();
   };
@@ -68,7 +68,9 @@ class SignIn extends React.Component {
             required
           />
 
-          {error && <p id="signin-error">{error.message}</p>}
+          {error && (
+            <p id="signin-error">{error.message}</p>
+          )}
 
           <CustomButton svg={'true'} type="submit">
             {' '}
