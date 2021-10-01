@@ -14,6 +14,7 @@ class Firebase {
     this.db = app.firestore();
 
     this.googleProvider = new app.auth.GoogleAuthProvider();
+    this.googleProvider = this.googleProvider.setCustomParameters({prompt: 'select_account'});
   }
 
   doCreateUserWithEmailAndPassword = (email, password) =>

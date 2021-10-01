@@ -40,6 +40,11 @@ class SignIn extends React.Component {
     this.setState({ [name]: value });
   };
 
+  handleGoogleSignIn = () => {
+    this.props.firebase.doSignInWithGoogle();
+    this.props.history.push(ROUTES.HOME);
+  }
+
   render() {
     const { email, password, error } = this.state;
 
@@ -77,7 +82,9 @@ class SignIn extends React.Component {
             Sign in{' '}
           </CustomButton>
 
-          <button className="signin-with-google">
+          <button 
+            onClick={this.handleGoogleSignIn}
+            className="signin-with-google">
             SIGNIN WITH GOOGLE
           </button>
         </form>

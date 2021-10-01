@@ -65,10 +65,11 @@ const authNavigation = (
 const Header = () => (
   <div className="header">
     <AuthUserContext.Consumer>
-    {
-      authUser => authUser !== null ? authNavigation : nonAuthNavigation
-    
-    }
+      {authUser =>
+        authUser !== null
+          ? authNavigation
+          : nonAuthNavigation
+      }
     </AuthUserContext.Consumer>
   </div>
 );
