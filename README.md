@@ -17,7 +17,7 @@ Todo
 1. [X] Signin/Signout/Signup working. session/withAuthentication HOC
   
 2. [ ] A redux store  - users - products etc.
-3. [ ] Need larger images
+3. [ ] never finished
 
 
 
