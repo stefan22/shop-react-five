@@ -3,7 +3,14 @@
 [![GitHub Super-Linter](https://github.com/stefan22/shop-react-five/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter) &nbsp; [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https:/github.com/stefan22/shop-react-five.git)
 
 
-> on-going :turtle: - we're all turtles
+<kbd>On•Going</kbd>
+
+
+### Live link [feature branch]
+
+[Live link](https://beamish-cannoli-0021aa.netlify.app/)
+
+
 
 
 
@@ -17,7 +24,7 @@ Todo
 1. [X] Signin/Signout/Signup working. session/withAuthentication HOC
   
 2. [ ] A redux store  - users - products etc.
-3. [ ] never finished
+3. [ ] ...
 
 
 
@@ -71,5 +78,6 @@ Closing the Google Signin popup will throw this error ONLY in development
 
 
 p- 380 x 491
+
 
 

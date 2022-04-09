@@ -11,7 +11,7 @@ ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
     <div className="main-wrapper">
       <App />
-    </div>
+    </div>,
   </FirebaseContext.Provider>,
   document.getElementById('root'),
 );
