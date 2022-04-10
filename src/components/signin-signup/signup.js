@@ -21,11 +21,12 @@ class SignUp extends Component {
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit(event) {
     const { email, passwordOne } = this.state;
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
+        // eslint-disable-next-line no-console
         console.log(authUser);
         this.setState({
           ...INITIAL_STATE,
@@ -37,10 +38,11 @@ class SignUp extends Component {
     event.preventDefault();
   };
 
-  handleChange = event =>
+  handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
+  }
 
   render() {
     const {

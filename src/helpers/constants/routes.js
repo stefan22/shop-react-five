@@ -2,6 +2,7 @@
  *  initial ROUTES
  */
 
+
 export const HOME = '/';
 export const SHOP = '/shop';
 export const SIGNIN = '/signin';

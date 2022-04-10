@@ -1,7 +1,3 @@
-@import 'base/vars';
 @import 'base/reset';
-@import 'base/base.scss';
+@import 'base/base';
 
-.header {
-  margin-bottom: var(--spacing-12);
-}

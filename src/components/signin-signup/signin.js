@@ -21,12 +21,13 @@ class SignIn extends React.Component {
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit(event) {
     const { email, password } = this.state;
 
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
+        // eslint-disable-next-line no-console
         console.log('authUser is ', authUser);
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
@@ -35,12 +36,12 @@ class SignIn extends React.Component {
     event.preventDefault();
   };
 
-  handleChange = event => {
+  handleChange(event) {
     const { value, name } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleGoogleSignIn = () => {
+  handleGoogleSignIn() {
     this.props.firebase.doSignInWithGoogle();
     this.props.history.push(ROUTES.HOME);
   }

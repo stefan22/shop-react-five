@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import MenuItem from '../menu-item';
+import ProductCategory from '../product-category';
 //helpers
 import { CATEGORIES_DATA } from '../../helpers/categories.data';
 import './styles.scss';
 
-class Directory extends Component {
+
+class ProductsDirectory extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,10 +15,10 @@ class Directory extends Component {
 
   render() {
     return (
-      <div className="directory-menu">
+      <div className="products-directory">
         {this.state.categories.map(
           ({ id, ...otherProps }) => (
-            <MenuItem key={id} {...otherProps} />
+            <ProductCategory key={id} {...otherProps} />
           ),
         )}
       </div>
@@ -25,4 +26,4 @@ class Directory extends Component {
   }
 }
 
-export default Directory;
+export default ProductsDirectory;

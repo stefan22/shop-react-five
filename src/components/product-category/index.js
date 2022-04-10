@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './styles.scss';
 
-const MenuItem = ({
+const ProductCategory = ({
   name,
   imageUrl,
   size,
@@ -10,24 +10,26 @@ const MenuItem = ({
   history,
   match,
 }) => (
-  <div
+
+  <button
     onClick={() => history.push(`${match.url}${linkUrl}`)}
+
     style={{
       backgroundImage: `url(${imageUrl})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }}
-    className={`directory-menu__item ${
+    className={`product-category__item ${
       !size ? 'regular' : size
     }`}
   >
-    <div className="content-item">
-      <h1 className="content-item__title">{name}</h1>
-      <span className="content-item__subtitle">
+    <div className="category-item">
+      <h1 className="category-item__title">{name}</h1>
+      <span className="category-item__subtitle">
         SHOP NOW
       </span>
     </div>
-  </div>
+  </button>
 );
 
-export default withRouter(MenuItem);
+export default withRouter(ProductCategory);

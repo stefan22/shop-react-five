@@ -1,5 +1,5 @@
 import React from 'react';
-import Directory from '../../components/directory';
+import ProductsDirectory from '../../components/products-directory';
 import { motion } from 'framer-motion';
 import './styles.home.scss';
 
@@ -12,7 +12,7 @@ const HomePage = () => (
     className="home-wrapper"
   >
     <h1>We're loaded! Browse our huge inventory!</h1>
-    <Directory />
+    <ProductsDirectory />
   </motion.div>
 );
 

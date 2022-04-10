@@ -32,44 +32,6 @@ Todo
 <br /><br />
 
 
-------
-
-<br /><br />
-
-### Firebase: Signin with Google
-
-
-
-
-[Not an error]
-Closing the Google Signin popup will throw this error ONLY in development
-
-<br />
-
-![Google Popup](public/images/screenshots/firebase-google-popup.png)
-
-
-
-
-
-
-
-
-
-<br />
-<br /> <br />
-
-
-
-
-### Initial layout  :rocket:
-
-----
-
-
-![](/public/images/screenshots/3-ss-dk-signin.png)
-
-
 
 
 

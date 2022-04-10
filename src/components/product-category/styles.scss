@@ -1,4 +1,4 @@
-.directory-menu {
+.product-category {
   &__item {
     min-width: 32.45%;
     height: 270px;
@@ -8,7 +8,7 @@
     justify-content: center;
     transform: perspective(100px);
     transition: all 0.3s ease-in 75ms;
-    border: 1px solid black;
+    border: 1px solid var(--color-black);
     margin: 0;
 
     &.large {
@@ -20,7 +20,7 @@
 
     &:hover {
       //leave for gsap
-      .content-item {
+      .category-item {
         cursor: pointer;
         opacity: 0.93;
         span {
@@ -41,17 +41,17 @@
   }
 }
 
-.content-item {
+.category-item {
   height: 90px;
   padding: 0 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid var(--color-black);
   cursor: pointer;
   transition: all 0.4s ease-in 200ms;
-  background-color: rgba(255, 255, 255, 0.94);
+  background-color: var(--color-whitebg);
   opacity: 0.75;
 
   &__title {

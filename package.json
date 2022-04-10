@@ -19,8 +19,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "npx prettier --check ./src",
-    "format:fix": "npx prettier --write ./src"
+    "prettier": "prettier --check '**/*.{js,jsx}'",
+    "prettier:fix": "prettier --write '**/*.{js,jsx}'",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "npm run lint:js -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -29,7 +31,14 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.50.0"
+    "sass": "^1.50.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1",
+    "sass-loader": "^12.6.0"
   },
   "browserslist": {
     "production": [

@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const AddSvg = (
   <svg
     width="160px"
