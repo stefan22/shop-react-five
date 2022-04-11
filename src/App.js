@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Switch,
+  Routes,
   Route,
-  BrowserRouter as Router,
 } from 'react-router-dom';
 
 import { AnimatePresence } from 'framer-motion';
@@ -17,40 +16,36 @@ import Signup from './pages/signup';
 //consts
 import * as ROUTES from './helpers/constants/routes';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
+const App = () => (
+      <>
         <Header />
         <AnimatePresence exitBeforeEnter>
-          <Switch>
+          <Routes>
             <Route
               exact
               path={ROUTES.HOME}
-              component={HomePage}
+              element={<HomePage />}
             />
             <Route
               exact
               path={ROUTES.SHOP}
-              component={ShopPage}
+              element={<ShopPage />}
             />
 
             <Route
               exact
               path={ROUTES.SIGNIN}
-              component={Signin}
+              element={<Signin />}
             />
 
             <Route
               exact
               path={ROUTES.SIGNUP}
-              component={Signup}
+              element={<Signup />}
             />
-          </Switch>
+          </Routes>
         </AnimatePresence>
-      </Router>
-    );
-  }
-}
+      </>
+);
 
 export default withAuthentication(App);

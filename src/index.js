@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from "react-router-dom";
 import App from './App';
 //firebase
 import Firebase, { FirebaseContext } from './firebase';
@@ -8,10 +9,14 @@ import Firebase, { FirebaseContext } from './firebase';
 import './styles/main.scss';
 
 ReactDOM.render(
+
   <FirebaseContext.Provider value={new Firebase()}>
-    <div className="main-wrapper">
-      <App />
-    </div>,
+    <BrowserRouter>
+      <div className="main-wrapper">
+        <App />
+      </div>
+    </BrowserRouter>
   </FirebaseContext.Provider>,
-  document.getElementById('root'),
+
+  document.getElementById('root')
 );

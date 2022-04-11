@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../../firebase/';
 import { compose } from 'react-recompose';
 //comps
@@ -22,4 +22,4 @@ const Signin = props => {
   );
 };
 
-export default compose(withRouter, withFirebase)(Signin);
+export default compose(withFirebase)(Signin);

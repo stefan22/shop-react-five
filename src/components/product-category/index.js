@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+//import { withRouter } from 'react-router-dom';
 import './styles.scss';
 
 const ProductCategory = ({
@@ -32,4 +32,4 @@ const ProductCategory = ({
   </button>
 );
 
-export default withRouter(ProductCategory);
+export default ProductCategory;
