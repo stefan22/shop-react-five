@@ -9,12 +9,14 @@
     "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+    }
   },
+
+
 
   "settings": {
     "react": {
