@@ -1,7 +1,9 @@
 import React from 'react';
+import { Outlet} from "react-router-dom";
 import ProductsDirectory from '../../components/products-directory';
 import { motion } from 'framer-motion';
 import './styles.home.scss';
+
 
 const HomePage = () => (
   <motion.div
@@ -13,6 +15,9 @@ const HomePage = () => (
   >
     <h1>We're loaded! Browse our huge inventory!</h1>
     <ProductsDirectory />
+    <Outlet>
+
+    </Outlet>
   </motion.div>
 );
 

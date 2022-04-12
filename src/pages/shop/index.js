@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Outlet} from "react-router-dom";
 import { PRODUCTS_DATA } from '../../helpers/products.data';
 import ProductsShowroom from '../../components/products-showroom';
+import Hats from "../categories/hats";
 import { motion } from 'framer-motion';
 import './styles.scss';
 
@@ -24,6 +26,13 @@ class ShopPage extends Component {
         transition={{ duration: 1 }}
         className="shop-page"
       >
+
+        <Outlet>
+          <Hats />
+
+        </Outlet>
+
+
         {categories.map((itm, idx) => (
           <ProductsShowroom
             key={idx}
@@ -31,7 +40,9 @@ class ShopPage extends Component {
             products={products}
             categories={categories}
           />
+
         ))}
+
       </motion.div>
     );
   }

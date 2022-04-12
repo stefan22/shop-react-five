@@ -1,5 +1,5 @@
 import React from 'react';
-//import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const ProductCategory = ({
@@ -7,13 +7,9 @@ const ProductCategory = ({
   imageUrl,
   size,
   linkUrl,
-  history,
-  match,
 }) => (
 
   <button
-    onClick={() => history.push(`${match.url}${linkUrl}`)}
-
     style={{
       backgroundImage: `url(${imageUrl})`,
       backgroundSize: 'cover',
@@ -23,12 +19,14 @@ const ProductCategory = ({
       !size ? 'regular' : size
     }`}
   >
+    <Link to={`/${linkUrl}`}>
     <div className="category-item">
       <h1 className="category-item__title">{name}</h1>
       <span className="category-item__subtitle">
         SHOP NOW
       </span>
     </div>
+    </Link>
   </button>
 );
 

@@ -4,7 +4,6 @@ import {BrowserRouter} from "react-router-dom";
 import App from './App';
 //firebase
 import Firebase, { FirebaseContext } from './firebase';
-
 //styles
 import './styles/main.scss';
 

@@ -7,30 +7,39 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import { withAuthentication } from './components/session';
 
+import Hats from './pages/categories/hats'
+
 //comps
-import Header from './components/header';
-import HomePage from './pages/home';
+import Navigation from './components/navigation';
+import HomePage from "./pages/home";
 import ShopPage from './pages/shop';
 import Signin from './pages/signin';
 import Signup from './pages/signup';
 //consts
 import * as ROUTES from './helpers/constants/routes';
 
+
 const App = () => (
       <>
-        <Header />
+        <Navigation />
         <AnimatePresence exitBeforeEnter>
           <Routes>
             <Route
-              exact
-              path={ROUTES.HOME}
+              index
               element={<HomePage />}
             />
             <Route
               exact
               path={ROUTES.SHOP}
               element={<ShopPage />}
-            />
+            >
+              <Route
+                exact
+                path={'hats'}
+                element={<Hats />}
+              />
+
+            </Route>
 
             <Route
               exact

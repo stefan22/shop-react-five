@@ -62,7 +62,7 @@ const authNavigation = (
   </div>
 );
 
-const Header = () => (
+const Navigation = () => (
   <div className="header">
     <AuthUserContext.Consumer>
       {authUser =>
@@ -74,4 +74,4 @@ const Header = () => (
   </div>
 );
 
-export default Header;
+export default Navigation;

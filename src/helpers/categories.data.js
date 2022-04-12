@@ -34,4 +34,5 @@ export const CATEGORIES_DATA = [
     id: 'cat5',
     linkUrl: 'shop/men',
   },
+
 ];

@@ -24,7 +24,8 @@ Todo
 1. [X] Signin/Signout/Signup working. session/withAuthentication HOC
   
 2. [ ] A redux store  - users - products etc.
-3. [ ] ...
+3. [ ] Updated React-router to v6
+4.     Updated React scripts to v5
 
 
 
