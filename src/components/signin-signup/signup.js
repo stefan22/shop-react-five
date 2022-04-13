@@ -61,14 +61,14 @@ class SignUp extends Component {
       username === '';
 
     return (
-      <div className="sign-in signup">
+      <div className="sign-in sign-up px-3 px-sm-5">
         <div className="sign-in__heading">
-          <h1>Signing up is Easy!</h1>
-          <h3>
+          <h1>No Account. Sign up now!</h1>
+          <h6>
             {submitted
               ? 'Sign up successful.'
               : "Your name, email and password and you're done!"}
-          </h3>
+          </h6>
         </div>
 
         <form onSubmit={this.handleSubmit}>
@@ -107,21 +107,25 @@ class SignUp extends Component {
             required
           />
 
-          <CustomButton disabled={formErrors} type="submit">
-            Sign Up
-          </CustomButton>
+          <div className={"sign-in-buttons__wrapper"}>
+            <CustomButton disabled={formErrors} type="submit">
+              Sign Up
+            </CustomButton>
+          </div>
+
 
           {error && (
             <p id="signup-error">{error.message}</p>
           )}
 
-          <FormLink
-            intro={'Signin with Google instead. '}
-          />
+
         </form>
+        <FormLink
+          intro={'Signin with Google instead. '}
+        />
       </div>
     );
   }
 }
 
-export default SignUp;
+export default SignUp

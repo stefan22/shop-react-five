@@ -29,12 +29,7 @@ const nonAuthNavigation = (
         SIGNIN
       </Link>
 
-      <Link
-        className="header-menu--link"
-        to={ROUTES.SIGNUP}
-      >
-        SIGNUP
-      </Link>
+
     </div>
   </div>
 );

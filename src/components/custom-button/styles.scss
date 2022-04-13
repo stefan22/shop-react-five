@@ -1,14 +1,13 @@
 .custom-button__wrapper {
-  width: 160px;
+  max-width: 200px;
+  width: 100%;
   height: auto;
-  position: absolute;
-  left: 300px;
+
   .custom-button {
-    width: 160px;
+    width: 100%;
     height: 50px;
     letter-spacing: 0.5px;
     line-height: 50px;
-    padding: 0 35px;
     background-color: var(--color-blue);
     text-transform: uppercase;
     font-weight: bold;
@@ -23,6 +22,7 @@
       pointer-events: none;
     }
 
+
     .border {
       position: absolute;
       left: 0;
@@ -30,7 +30,7 @@
       fill: transparent;
       stroke: rgb(255, 255, 255);
       stroke: #f5f6f6;
-      stroke-dasharray: 150 480;
+      stroke-dasharray: 150 500;
       stroke-dashoffset: 150;
       transition: all 1s ease-in-out,
         border-color 1.5s linear 1s;
@@ -52,8 +52,13 @@
         color: #212121;
       }
       .border {
-        stroke-dashoffset: -480;
+        stroke-dashoffset: -500;
       }
     }
   }
+
+  @media (max-width: 576px) {
+    margin: 0 auto;
+  }
+
 }

@@ -50,10 +50,10 @@ class SignIn extends React.Component {
     const { email, password, error } = this.state;
 
     return (
-      <div className="sign-in">
+      <div className="sign-in px-3 px-sm-5">
         <div className="sign-in__heading">
           <h1>Already have an account</h1>
-          <h3>Sign in with your email and password</h3>
+          <h6>Sign in with your email and password</h6>
         </div>
 
         <form onSubmit={this.handleSubmit}>
@@ -78,16 +78,19 @@ class SignIn extends React.Component {
             <p id="signin-error">{error.message}</p>
           )}
 
-          <CustomButton svg={'true'} type="submit">
-            {' '}
-            Sign in{' '}
-          </CustomButton>
+          <div className={"sign-in-buttons__wrapper"}>
+            <CustomButton
+              svg={'true'}
+              type="submit">
+              Sign in{' '}
+            </CustomButton>
 
-          <button 
-            onClick={this.handleGoogleSignIn}
-            className="signin-with-google">
-            SIGNIN WITH GOOGLE
-          </button>
+            <button
+              onClick={this.handleGoogleSignIn}
+              className="signin-with-google">
+              SIGNIN WITH GOOGLE
+            </button>
+          </div>
         </form>
 
         <FormLink
