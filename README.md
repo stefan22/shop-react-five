@@ -25,7 +25,10 @@ Todo
   
 2. [ ] A redux store  - users - products etc.
 3. [ ] Updated React-router to v6
-4.     Updated React scripts to v5
+4.     Updated React-scripts to v5
+5.     Installed Bootstrap v5
+6.     Sign-in/Sign-up pages merged
+7.     .....
 
 
 
