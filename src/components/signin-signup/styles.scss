@@ -3,6 +3,10 @@
 .sign-in {
   &__heading {
     margin-bottom: var(--spacing-16);
+    @media (max-width: 576px) {
+      text-align: center;
+
+    }
   }
 
   form {
@@ -24,7 +28,6 @@
         }
 
         .signin-with-google {
-          margin-left: var(--spacing-10);
           height: 50px;
           line-height: 50px;
           font-size: var(--fontSize-1);
@@ -35,8 +38,10 @@
           max-width: 200px;
           color: var(--color-heading);
           letter-spacing: 0.15px;
-          @media (max-width: 576px) {
+          @media (max-width: 1501px) {
             margin: var(--spacing-10) 0 0;
+          }
+          @media (max-width: 576px) {
             max-width: initial;
           }
         }
@@ -56,6 +61,7 @@
       text-align: center;
     }
   }
+
 
 }
 

@@ -16,6 +16,9 @@
     line-height: var(--lineHeight-normal);
   }
 
+
+
+
   body {
     font-family: var(--fontFamily-sans);
     font-size: var(--fontSize-root);
@@ -38,7 +41,8 @@
     color: var(--color-heading);
     letter-spacing: var(--spacing-less-one);
     @media screen and (min-width: 890px) {
-      font-size: var(--fontSize-6);
+      font-size: var(--fontSize-5);
+
     }
   }
 
@@ -52,6 +56,23 @@
     color: var(--color-red);
     font-weight: var(--fontWeight-normal);
     line-height: var(--lineHeight-normal);
+  }
+
+  h5 {
+    font-size: var(--fontSize-2);
+    color: var(--color-lightgray);
+    font-weight: var(--fontWeight-normal);
+    line-height: var(--lineHeight-normal);
+
+  }
+
+  h6 {
+    font-size: var(--fontSize-2);
+    color: var(--color-red);
+    margin: var(--spacing-3) 0;
+    font-weight: var(--fontWeight-normal);
+    line-height: var(--lineHeight-normal);
+
   }
 
   p {
@@ -68,27 +89,13 @@
 
 
 .main-wrapper {
-  margin: 0 var(--spacing-4);
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.col {
+  padding: 0 var(--spacing-4);
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-height: 100%;
+  justify-content: center;
 }
 
-.double-col {
-  display: flex;
-  flex-direction: column;
-  flex: 2;
-}
 
 .header {
   margin-bottom: var(--spacing-12);

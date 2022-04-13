@@ -1,13 +1,12 @@
 import React from 'react';
-//import { withRouter } from 'react-router-dom';
-import { withFirebase } from '../../firebase/';
 import { compose } from 'react-recompose';
 //comps
-import { SignIn } from '../../components/signin-signup/';
+import { SignInForm } from '../../components/signin-signup';
 import Signup from "../signup";
 //styles
 import './styles.scss';
 import { motion } from 'framer-motion';
+import signCover from '../../assets/images/open2.jpeg'
 
 const Signin = props => {
   return (
@@ -19,11 +18,16 @@ const Signin = props => {
       className="signin-up-wrapper"
     >
       <div className="row row-md-cols-2 justify-content-center">
-          <div className="col-12 col-sm-5">
-            <SignIn {...props} />
+          <div className="col-12 col-xl-5">
+            <SignInForm {...props} />
           </div>
-          <div className="col-12 offset-sm-1 col-sm-5">
-            <Signup />
+          <div className="col-12 offset-xl-1 col-xl-5 px-5">
+            <img className={"img-fluid mt-5 mt-xl-0"} src={signCover} alt={"sign-in"}
+                 width={1920}  height={1080}
+
+
+            />
+
           </div>
 
       </div>
@@ -31,4 +35,4 @@ const Signin = props => {
   );
 };
 
-export default compose(withFirebase)(Signin);
+export default Signin

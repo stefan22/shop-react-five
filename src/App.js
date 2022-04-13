@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { AnimatePresence } from 'framer-motion';
-import { withAuthentication } from './components/session';
+
 
 import Hats from './pages/categories/hats'
 
@@ -57,4 +57,4 @@ const App = () => (
       </>
 );
 
-export default withAuthentication(App);
+export default App;

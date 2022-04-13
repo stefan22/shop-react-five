@@ -19,13 +19,14 @@ class ShopPage extends Component {
     const categories = Object.keys(products);
 
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        className="shop-page"
-      >
+      <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="shop-page"
+        >
 
         <Outlet>
           <Hats />
@@ -44,6 +45,7 @@ class ShopPage extends Component {
         ))}
 
       </motion.div>
+      </>
     );
   }
 }
