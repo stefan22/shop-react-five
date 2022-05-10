@@ -9,7 +9,8 @@ import {
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
  
-} from '../../firebase/firebase';
+
+} from '../../firebase/firebase'
 
 import './styles.scss';
 
@@ -28,11 +29,9 @@ const SignInForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    console.log('user is ',user)
-    setCurrentUser(user);
-  };
+  const signInWithPopup = async () => await signInWithGooglePopup();
+  
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -101,7 +100,7 @@ const SignInForm = () => {
             </CustomButton>
 
             <button
-              onClick={signInWithGoogle}
+              onClick={signInWithPopup}
               className="signin-with-google">
               SIGNIN WITH GOOGLE
             </button>

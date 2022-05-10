@@ -1,135 +1,145 @@
-import React, { Component } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 import FormInput from '../form-input';
 import CustomButton from '../custom-button';
 import FormLink from './form-link';
-import * as ROUTES from '../../helpers/constants/routes';
+import { UserContext} from '../../contexts/user.context'
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth
+} from '../../firebase/firebase'
+import './styles.scss'
 
-const INITIAL_STATE = {
-  username: '',
-  email: '',
-  passwordOne: '',
-  passwordTwo: '',
+const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
   submitted: false,
-  error: null,
 };
 
-class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...INITIAL_STATE,
-    };
-  }
+const SignupForm = () => {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
+  const [submitted, setSubmitted ] = useState(false);
+  const { setCurrentUser } = useContext(UserContext);
 
-  handleSubmit(event) {
-    const { email, passwordOne } = this.state;
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        // eslint-disable-next-line no-console
-        console.log(authUser);
-        this.setState({
-          ...INITIAL_STATE,
-          submitted: true,
-        });
-        this.props.history.push(ROUTES.HOME);
-      })
-      .catch(error => this.setState({ error }));
-    event.preventDefault();
+  const resetFormFields = () => {
+    setSubmitted(false);
+    setFormFields(defaultFormFields);
   };
 
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (password !== confirmPassword) {
+      alert("passwords do not match");
+      return;
+    }
+    setSubmitted(true);
 
-  render() {
-    const {
-      username,
-      email,
-      passwordOne,
-      passwordTwo,
-      error,
-      submitted,
-    } = this.state;
+    try {
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+   
+      await createUserDocumentFromAuth(user, { displayName });
+      resetFormFields();
+      setCurrentUser(user);
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("Cannot create user, email already in use");
+      } else {
+        console.log("user creation encountered an error", error);
+      }
+    }
+  };
 
-    const formErrors =
-      passwordOne !== passwordTwo ||
-      passwordOne === '' ||
-      email === '' ||
-      username === '';
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
+  
+  const doSubmitted = useCallback( () => {
+    return  setSubmitted(false);
+  },[submitted])
+  
+  useEffect(() => {
+      doSubmitted()
+      return () => doSubmitted
+    },
+    [])
 
-    return (
-      <div className="sign-in sign-up px-3 px-sm-5">
-        <div className="sign-in__heading">
-          <h1>No Account. Sign up now!</h1>
-          <h6>
-            {submitted
-              ? 'Sign up successful.'
-              : "Your name, email and password and you're done!"}
-          </h6>
+  return (
+    <div className="sign-in sign-up px-3 px-sm-5">
+      <div className="sign-in__heading">
+        <h1>No Account. Sign up now!</h1>
+        <h6>
+          {submitted
+            ? 'Form submitted.'
+            : "Your name, email and password and you're done!"}
+        </h6>
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          label="Display Name"
+          type="text"
+          required
+          onChange={handleChange}
+          name="displayName"
+          autoComplete={"displayName"}
+          value={displayName}
+        />
+
+        <FormInput
+          label="Email"
+          type="email"
+          required
+          onChange={handleChange}
+          autoComplete={"email"}
+          name="email"
+          value={email}
+        />
+        <FormInput
+          label="Password"
+          type="password"
+          required
+          autoComplete={"new-password"}
+          onChange={handleChange}
+          name="password"
+          value={password}
+        />
+
+        <FormInput
+          label="Confirm Password"
+          type="password"
+          required
+          autoComplete={"new-password"}
+          onChange={handleChange}
+          name="confirmPassword"
+          value={confirmPassword}
+        />
+
+        <div className={"sign-in-buttons__wrapper"}>
+          <CustomButton type="submit">
+            Sign Up
+          </CustomButton>
         </div>
 
-        <form onSubmit={this.handleSubmit}>
-          <FormInput
-            name="username"
-            type="text"
-            label="Full Name"
-            autoComplete={"username"}
-            handleChange={this.handleChange}
-            value={username}
-            required
-          />
 
-          <FormInput
-            name="email"
-            type="email"
-            handleChange={this.handleChange}
-            value={email}
-            autoComplete={"email"}
-            label="Email"
-            required
-          />
-          <FormInput
-            name="passwordOne"
-            type="password"
-            handleChange={this.handleChange}
-            value={passwordOne}
-            label="Password"
-            autoComplete={"new-password"}
-            required
-          />
-
-          <FormInput
-            name="passwordTwo"
-            type="password"
-            handleChange={this.handleChange}
-            value={passwordTwo}
-            autoComplete={"new-password"}
-            label="Confirm Password"
-            required
-          />
-
-          <div className={"sign-in-buttons__wrapper"}>
-            <CustomButton disabled={formErrors} type="submit">
-              Sign Up
-            </CustomButton>
-          </div>
+     
 
 
-          {error && (
-            <p id="signup-error">{error.message}</p>
-          )}
-
-
-        </form>
-        <FormLink
-          intro={'Signin with Google instead. '}
-        />
-      </div>
-    );
-  }
+      </form>
+      <FormLink
+        intro={'Signin with Google instead. '}
+      />
+    </div>
+  );
+  
+  
 }
 
-export default SignUp
+
+
+export default SignupForm
