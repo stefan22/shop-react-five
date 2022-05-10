@@ -35,4 +35,6 @@ Icon
 
 
 /firebase-api/
-firebase-api/
+firebase-api
+firebase.config.js
+src/components/firebase/firebase.config.js

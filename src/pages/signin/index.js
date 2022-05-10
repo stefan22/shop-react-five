@@ -1,8 +1,6 @@
 import React from 'react';
-import { compose } from 'react-recompose';
 //comps
 import { SignInForm } from '../../components/signin-signup';
-import Signup from "../signup";
 //styles
 import './styles.scss';
 import { motion } from 'framer-motion';

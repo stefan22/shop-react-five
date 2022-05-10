@@ -8,6 +8,7 @@ import { UserContext } from '../../contexts/user.context';
 import {
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
+ 
 } from '../../firebase/firebase';
 
 import './styles.scss';
@@ -29,6 +30,7 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
+    console.log('user is ',user)
     setCurrentUser(user);
   };
 
@@ -105,6 +107,8 @@ const SignInForm = () => {
             </button>
           </div>
         </form>
+
+     
 
         <FormLink
           intro={"Don't have an account yet? "}

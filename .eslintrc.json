@@ -10,10 +10,12 @@
   },
   "parserOptions": {
     "parser": "babel-eslint",
-    "ecmaVersion": 6,
+    "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
     }
   },
 
