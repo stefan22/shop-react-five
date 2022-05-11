@@ -23,7 +23,7 @@ const Signin = props => {
         
           <div className="col-12 col-sm-5 px-0 px-sm-3">
             <img 
-              className={"img-fluid m-0 m-sm-5"} 
+              className={"img-fluid m-0 m-sm-3"} 
               src={signCover} alt={"sign-in"}
                  width={1920}  height={1080}
             />

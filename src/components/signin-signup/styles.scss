@@ -114,9 +114,14 @@
 
 
 img.signup {
-  transform: scale(.9) perspective(400px);
+  transform: scale(0.75) translateY(-15%) perspective(400px);
   @media screen and (max-width: 575px) {
       transform: none;
+      display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     
   }
 }

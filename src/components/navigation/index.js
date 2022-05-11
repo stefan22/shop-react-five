@@ -1,14 +1,19 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../contexts/user.context'
 import { Link, Outlet } from 'react-router-dom';
+import { signOutUser } from '../../firebase/firebase'
 import logo from '../../assets/mad-duck-logo.png';
 import * as ROUTES from '../../helpers/constants/routes';
 import './styles.scss';
 
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  console.log('current user ', currentUser);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  
+  const doSignOut = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  } 
   
   return (
   <div className="header">
@@ -26,13 +31,29 @@ const Navigation = () => {
         <Link className="header-menu--link" to={ROUTES.SHOP}>
           SHOP
         </Link>
-        <Link
-          className="header-menu--link"
-          to={ROUTES.SIGNIN}
-        >
-          SIGNIN
-        </Link>
 
+
+        { currentUser ? (
+
+          <Link
+            className="header-menu--link"
+            onClick={{doSignOut}}
+            to={ROUTES.SIGNOUT}
+          >
+            SIGNOUT
+          </Link>
+
+
+          ): (
+            
+          <Link
+            className="header-menu--link"
+            to={ROUTES.SIGNIN}
+          >
+            SIGNIN
+          </Link>
+
+        )}
 
       </div>
     </div>

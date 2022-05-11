@@ -1,12 +1,10 @@
 import React from 'react';
-import { SignInForm, SignUp } from '../../components/signin-signup/'
+import { SignUp } from '../../components/signin-signup/'
 //styles
 import './styles.scss';
 import { motion } from 'framer-motion'
 import signCover from '../../assets/images/covid.png'
-//import { motion } from 'framer-motion';
 
-//const Signup = props => <SignUp {...props} />
 
 
 
@@ -25,7 +23,7 @@ const Signup = props => {
           <SignUp {...props} />
         </div>
         <div className="col-12 col-sm-5 px-0 px-sm-3">
-          <img className={"img-fluid m-0 m-sm-5 signup"} src={signCover} alt={"sign-in"}
+          <img className={"img-fluid m-0 m-sm-3 signup"} src={signCover} alt={"sign-in"}
                width={1920}  height={1080}
 
 
