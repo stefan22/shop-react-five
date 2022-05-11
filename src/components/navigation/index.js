@@ -1,11 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { UserContext } from '../../contexts/user.context'
+import { Link, Outlet } from 'react-router-dom';
 import logo from '../../assets/mad-duck-logo.png';
 import * as ROUTES from '../../helpers/constants/routes';
 import './styles.scss';
 
 
-const Navigation = () => (
+const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log('current user ', currentUser);
+  
+  return (
   <div className="header">
     <div className="header__inner-wrapper">
       <Link className="logo-wrapper" to={ROUTES.HOME}>
@@ -31,7 +36,8 @@ const Navigation = () => (
 
       </div>
     </div>
+    <Outlet />
   </div>
-);
+  )}
 
 export default Navigation;

@@ -1,8 +1,21 @@
 @import '../../styles/base/mixins';
 
+
+.signin-up-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-6) 0;
+  align-content: center;
+  height: auto;
+  padding: 0;
+}
+
+
+
 .sign-in {
   &__heading {
-    margin-bottom: var(--spacing-16);
+    margin-bottom: var(--spacing-8);
     @media (max-width: 576px) {
       text-align: center;
 
@@ -18,7 +31,7 @@
     margin-bottom: var(--spacing-8);
     .sign-in-buttons {
       &__wrapper {
-        margin: var(--spacing-18) 0 0;
+        margin: var(--spacing-18) 0 var(--spacing-8);
         display: flex;
         width: 100%;
         align-items: end;
@@ -73,7 +86,7 @@
 .sign-in.signup {
 
   form {
-    margin-bottom: var(--spacing-8);
+    
     .form-link {
       margin-top: var(--spacing-36);
       font-size: var(--fontSize-02);
@@ -97,4 +110,13 @@
   font-size: var(--fontSize-01);
   padding: 3px 5px;
   width: 100%;
+}
+
+
+img.signup {
+  transform: scale(.9) perspective(400px);
+  @media screen and (max-width: 575px) {
+      transform: none;
+    
+  }
 }

@@ -1,19 +1,21 @@
 import React from "react";
+//context
 import { useState, useContext } from 'react';
+import { UserContext } from '../../contexts/user.context';
+//components
 import FormLink from './form-link'
 import FormInput from '../form-input';
 import CustomButton from "../custom-button";
-import { UserContext } from '../../contexts/user.context';
-
+// firebase api
 import {
+  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
- 
-
 } from '../../firebase/firebase'
-
+// styles
 import './styles.scss';
 
+// initial state
 const defaultFormFields = {
   email: '',
   password: '',
@@ -23,26 +25,30 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  //passing usr context
   const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
-  const signInWithPopup = async () => await signInWithGooglePopup();
+  const signInWithPopup = async () => {
+    const {user} = await signInWithGooglePopup();
+    await createUserDocumentFromAuth(user);
+  }
   
- 
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
       resetFormFields();
+      //setting current user state with response value obj passed
       setCurrentUser(user);
+      
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':
@@ -52,6 +58,7 @@ const SignInForm = () => {
           alert('no user associated with this email');
           break;
         default:
+          // eslint-disable-next-line no-console
           console.log(error);
       }
     }
@@ -59,7 +66,6 @@ const SignInForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormFields({ ...formFields, [name]: value });
   };
     

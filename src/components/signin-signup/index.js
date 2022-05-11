@@ -1,4 +1,4 @@
 import SignInForm from './signinForm';
-import SignUp from './signup';
+import SignUp from './signupForm';
 
 export { SignInForm, SignUp };

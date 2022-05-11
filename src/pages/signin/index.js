@@ -15,19 +15,20 @@ const Signin = props => {
       transition={{ duration: 1 }}
       className="signin-up-wrapper"
     >
-      <div className="row row-md-cols-2 justify-content-center">
-          <div className="col-12 col-xl-5">
+      <div className="row d-flex justify-content-center px-3">
+          
+          <div className="col-12 col-sm-6 px-0 px-sm-3">
             <SignInForm {...props} />
           </div>
-          <div className="col-12 offset-xl-1 col-xl-5 px-5">
-            <img className={"img-fluid mt-5 mt-xl-0"} src={signCover} alt={"sign-in"}
+        
+          <div className="col-12 col-sm-5 px-0 px-sm-3">
+            <img 
+              className={"img-fluid m-0 m-sm-5"} 
+              src={signCover} alt={"sign-in"}
                  width={1920}  height={1080}
-
-
             />
 
           </div>
-
       </div>
     </motion.div>
   );

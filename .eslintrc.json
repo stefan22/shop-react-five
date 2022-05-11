@@ -1,31 +1,13 @@
 {
+  "root": true,
   "env": {
     "browser": true,
-    "es2021": true,
     "node": true
-  },
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
   },
   "parserOptions": {
     "parser": "babel-eslint",
-    "ecmaVersion": 7,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
-
-
-
-  "settings": {
-    "react": {
-      "pragma": "React", // Pragma to use, default to "React"
-      "version": "detect"
-    }
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
 
   "extends": [
@@ -44,7 +26,7 @@
     "react/display-name": 0,
     "react/no-unescaped-entities": 0,
     "no-console": 1,
-    "no-debugger":1,
-    "prettier/prettier":0
+    "no-debugger": 1,
+    "prettier/prettier": 0
   }
 }

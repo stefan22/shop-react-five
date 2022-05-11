@@ -24,6 +24,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+  
+
+
 
 .github/workflows/
 .prettier
@@ -33,6 +36,7 @@ yarn-error.log*
 Icon\r
 Icon
 
+.eslintcache
 
 /firebase-api/
 firebase-api
