@@ -52,6 +52,9 @@ const App = () => (
               path={ROUTES.SIGNUP}
               element={<Signup />}
             />
+
+            
+    
           </Routes>
         </AnimatePresence>
       </>

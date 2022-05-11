@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect, useCallback } from 'react'
+import React, { useState } from 'react'
 import FormInput from '../form-input';
 import CustomButton from '../custom-button';
 import FormLink from './form-link';
-import { UserContext} from '../../contexts/user.context'
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth
@@ -14,19 +13,19 @@ const defaultFormFields = {
   email: "",
   password: "",
   confirmPassword: "",
-  submitted: false,
+
 };
 
 const SignupForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  const [submitted, setSubmitted ] = useState(false);
-  const { setCurrentUser } = useContext(UserContext);
+
+
 
   const resetFormFields = () => {
-    setSubmitted(false);
     setFormFields(defaultFormFields);
   };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,17 +33,17 @@ const SignupForm = () => {
       alert("passwords do not match");
       return;
     }
-    setSubmitted(true);
+  
 
     try {
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-       setCurrentUser(user);
+      
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
-      setCurrentUser(user);
+   
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
@@ -59,28 +58,12 @@ const SignupForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
   
-  const doSubmitted = useCallback( () => {
-    return  setSubmitted(false);
-  },[])
-  
-  useEffect(() => {
-      doSubmitted()
-      return () => doSubmitted
-    },
-    [doSubmitted])
-
-        console.log('signup form ', 'run sign up form')
-  
   return (
     <div className="sign-in sign-up px-3 px-sm-5">
-      
-        
           <div className="sign-in__heading">
             <h1>No Account. Sign up now!</h1>
             <h6>
-              {submitted
-                ? 'Form submitted.'
-                : "Your name, email and password and you're done!"}
+              Your name, email and password and you're done!
             </h6>
           </div>
          

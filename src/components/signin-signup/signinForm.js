@@ -1,6 +1,4 @@
-import React from "react";
-//context
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 //components
 import FormLink from './form-link'
@@ -33,35 +31,22 @@ const SignInForm = () => {
   };
 
   const signInWithPopup = async () => {
-    const {user} = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   }
-  
   
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
+      await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
       resetFormFields();
-      //setting current user state with response value obj passed
-      setCurrentUser(user);
       
     } catch (error) {
-      switch (error.code) {
-        case 'auth/wrong-password':
-          alert('incorrect password for email');
-          break;
-        case 'auth/user-not-found':
-          alert('no user associated with this email');
-          break;
-        default:
           // eslint-disable-next-line no-console
           console.log(error);
       }
-    }
   };
 
   const handleChange = (event) => {

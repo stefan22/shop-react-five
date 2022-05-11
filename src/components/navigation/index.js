@@ -31,29 +31,26 @@ const Navigation = () => {
         <Link className="header-menu--link" to={ROUTES.SHOP}>
           SHOP
         </Link>
-
-
+        
         { currentUser ? (
 
           <Link
             className="header-menu--link"
-            onClick={{doSignOut}}
+            onClick={doSignOut}
             to={ROUTES.SIGNOUT}
           >
             SIGNOUT
           </Link>
-
-
           ): (
             
-          <Link
+            <Link
             className="header-menu--link"
             to={ROUTES.SIGNIN}
-          >
-            SIGNIN
-          </Link>
+            >
+              SIGNIN
+            </Link>
 
-        )}
+          )}
 
       </div>
     </div>
