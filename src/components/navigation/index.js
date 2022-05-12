@@ -8,17 +8,14 @@ import './styles.scss';
 
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   
-  const doSignOut = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  } 
-  
+
   return (
   <div className="header">
     <div className="header__inner-wrapper">
       <Link className="logo-wrapper" to={ROUTES.HOME}>
+        <Outlet />
         <img
           src={logo}
           width="885"
@@ -36,7 +33,7 @@ const Navigation = () => {
 
           <Link
             className="header-menu--link"
-            onClick={doSignOut}
+            onClick={signOutUser}
             to={ROUTES.SIGNOUT}
           >
             SIGNOUT
@@ -54,7 +51,7 @@ const Navigation = () => {
 
       </div>
     </div>
-    <Outlet />
+   
   </div>
   )}
 

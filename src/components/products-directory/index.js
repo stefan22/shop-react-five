@@ -6,11 +6,12 @@ import './styles.scss';
 
 
 const ProductsDirectory = () => {
-  const categories = CATEGORIES_DATA
+  const categoriesData = CATEGORIES_DATA
+
 
     return (
       <div className="products-directory">
-        {categories.map((category) =>
+        {categoriesData.map((category) =>
             <ProductCategory key={category.id} {...category}  />
         )}
       </div>

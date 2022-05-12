@@ -7,7 +7,7 @@ import {
 import { AnimatePresence } from 'framer-motion';
 
 
-import Hats from './pages/categories/hats'
+//import Hats from './pages/categories/hats';
 
 //comps
 import Navigation from './components/navigation';
@@ -23,23 +23,19 @@ const App = () => (
       <>
         <Navigation />
         <AnimatePresence exitBeforeEnter>
+
           <Routes>
-            <Route
-              index
-              element={<HomePage />}
-            />
+
+              <Route
+                index
+                element={<HomePage />}
+              />
+
             <Route
               exact
               path={ROUTES.SHOP}
               element={<ShopPage />}
-            >
-              <Route
-                exact
-                path={'hats'}
-                element={<Hats />}
-              />
-
-            </Route>
+            />
 
             <Route
               exact
@@ -53,9 +49,8 @@ const App = () => (
               element={<Signup />}
             />
 
-            
-    
           </Routes>
+
         </AnimatePresence>
       </>
 );

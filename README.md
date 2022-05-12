@@ -17,33 +17,10 @@
 
 <br />
 
-Todo
------
+### Major changes
 
-
-1. [X] Signin/Signout/Signup working. session/withAuthentication HOC
-  
-2. [ ] A redux store  - users - products etc.
-3. [ ] Updated React-router to v6
-4.     Updated React-scripts to v5
-5.     Installed Bootstrap v5
-6.     Sign-in/Sign-up pages split
-7.     .....
-
-
-
-
-<br /><br />
-
-
-
-
-
-
-
-
-
-p- 380 x 491
-
-
-
+• node packages: react, react-scripts v5, router v6 boostrap5 etc.  √         
+• classes -> hooks  
+• firebase is back on
+• protected routes are back
+• limit context & add redux           
