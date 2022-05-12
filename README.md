@@ -19,8 +19,11 @@
 
 ### Major changes
 
-• node packages: react, react-scripts v5, router v6 boostrap5 etc.  √         
-• classes -> hooks  
-• firebase is back on
-• protected routes are back
-• limit context & add redux           
+- node packages updates:
+  react, react-scripts v5, router v6 boostrap5 etc.
+- classes -> hooks
+- firebase is back on
+- protected routes are back
+- limit context & add room for redux
+
+
