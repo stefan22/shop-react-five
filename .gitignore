@@ -38,6 +38,7 @@ yarn-error.log*
 .prettier
 coverage/
 
+
 # firebase
 /firebase.config.js
 src/firebase/firebase.config.js!/.gitignore
