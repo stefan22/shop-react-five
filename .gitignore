@@ -39,8 +39,4 @@ yarn-error.log*
 coverage/
 
 # firebase
-**/**/firebase.config.js
-/src/firebase/firebase.config.js
-
-
-
+/firebase.config.js
