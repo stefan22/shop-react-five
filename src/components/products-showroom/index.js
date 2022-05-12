@@ -1,6 +1,6 @@
-import React from 'react';
-import ProductPreview from '../product-preview';
-import './styles.scss';
+import React from 'react'
+import ProductPreview from '../product-preview'
+import './styles.scss'
 
 const ProductsShowroom = ({ title, products }) => {
   return (
@@ -18,7 +18,7 @@ const ProductsShowroom = ({ title, products }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductsShowroom;
+export default ProductsShowroom

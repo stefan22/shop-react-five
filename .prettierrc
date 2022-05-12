@@ -6,11 +6,13 @@
   "tabWidth": 2,
   "useTabs": false,
   "trailingComma": "es5",
-  "bracketSameLine": false,
-  "arrowParens": "always",
+  "bracketSameLine": true,
+  "arrowParens": "avoid",
   "proseWrap": "always",
   "endOfLine": "lf",
   "jsxSingleQuote": false,
-  "requirePragma": true,
-  "no-restricted-syntax": ["error", "SequenceExpression"]
+  "requirePragma": false,
+  "parser": "babel",
+  "htmlWhitespaceSensitivity": "css",
+  "singleAttributePerLine": true
 }

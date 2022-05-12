@@ -161,4 +161,4 @@ export const PRODUCTS_DATA = {
       cat: 'men',
     },
   ],
-};
+}

@@ -1,8 +1,10 @@
-import React from 'react';
-import './styles.scss';
+import React from 'react'
+import './styles.scss'
 
 const ProductPreview = ({ id, name, price, imageUrl }) => (
-  <div key={id} className="product-preview">
+  <div
+    key={id}
+    className="product-preview">
     <div className="image-preview">
       <img
         src={imageUrl}
@@ -16,6 +18,6 @@ const ProductPreview = ({ id, name, price, imageUrl }) => (
       <span className="product-footer__price">{price}</span>
     </div>
   </div>
-);
+)
 
-export default ProductPreview;
+export default ProductPreview
