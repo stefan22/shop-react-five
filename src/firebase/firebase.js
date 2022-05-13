@@ -1,19 +1,30 @@
 import { initializeApp } from 'firebase/app'
-import { firebaseConfig } from './firebase.config'
-
 import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
+  getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
 } from 'firebase/auth'
 
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
-const firebaseApp = initializeApp(firebaseConfig)
+import { cloneUpdateObject, removeOuterStrings } from '../helpers/helperFns'
+
+import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore'
+
+const firebaseAPI = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+}
+
+
+initializeApp(cloneUpdateObject(firebaseAPI,removeOuterStrings))
 
 const googleProvider = new GoogleAuthProvider()
 
