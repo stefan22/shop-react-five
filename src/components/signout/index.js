@@ -1,14 +1,14 @@
 import React from 'react'
-import { withFirebase } from '../../../firebase/'
+import { signOutUser } from '../firebase/firebase'
 import './styles.scss'
 
 const SignOut = props => (
   <button
     id="signout-button"
     type="button"
-    onClick={props.firebase.doSignOut}>
+    onClick={signOutUser}>
     SIGN-OUT
   </button>
 )
 
-export default withFirebase(SignOut)
+export default SignOut

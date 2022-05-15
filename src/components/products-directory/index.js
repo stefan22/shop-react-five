@@ -1,16 +1,16 @@
 import React from 'react'
-import ProductCategory from '../product-category'
+import CategoryButton from '../category-button'
 //helpers
 import { CATEGORIES_DATA } from '../../helpers/categories.data'
-import './styles.scss'
+import styles from './catbuttons.module.css'
 
 const ProductsDirectory = () => {
   const categoriesData = CATEGORIES_DATA
 
   return (
-    <div className="products-directory">
+    <div className={styles._wrapper}>
       {categoriesData.map(category => (
-        <ProductCategory
+        <CategoryButton
           key={category.id}
           {...category}
         />

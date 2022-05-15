@@ -17,8 +17,6 @@
   }
 
 
-
-
   body {
     font-family: var(--fontFamily-sans);
     font-size: var(--fontSize-root);
@@ -86,8 +84,6 @@
 }
 
 
-
-
 .main-wrapper {
   padding: 0 var(--spacing-4);
   display: flex;
@@ -110,4 +106,9 @@
   .double-col {
     flex: 2;
   }
+}
+
+
+a {
+  text-decoration: none;
 }

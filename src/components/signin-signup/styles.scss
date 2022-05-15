@@ -12,7 +12,6 @@
 }
 
 
-
 .sign-in {
   &__heading {
     margin-bottom: var(--spacing-8);
@@ -29,6 +28,8 @@
     height: 100%;
     position: relative;
     margin-bottom: var(--spacing-8);
+
+
     .sign-in-buttons {
       &__wrapper {
         margin: var(--spacing-18) 0 var(--spacing-8);
@@ -51,6 +52,15 @@
           max-width: 200px;
           color: var(--color-heading);
           letter-spacing: 0.15px;
+          transition: all .4s linear 150ms;
+
+
+          &:hover {
+            background-color: var(--color-red);
+            color: var(--color-white);
+          }
+
+
           @media (max-width: 1501px) {
             margin: var(--spacing-10) 0 0;
           }
@@ -63,13 +73,17 @@
     }
 
   }
+
   .form-link {
     font-size: var(--fontSize-0);
     color: var(--color-gray);
+
     a {
       color: var(--color-blue);
       text-decoration: underline;
+      display: inline;
     }
+
     @media (max-width: 576px) {
       text-align: center;
     }
@@ -79,14 +93,10 @@
 }
 
 
-
-
-
-
 .sign-in.signup {
 
   form {
-    
+
     .form-link {
       margin-top: var(--spacing-36);
       font-size: var(--fontSize-02);
@@ -116,12 +126,12 @@
 img.signup {
   transform: scale(0.75) translateY(-15%) perspective(400px);
   @media screen and (max-width: 575px) {
-      transform: none;
-      display: flex;
+    transform: none;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     align-items: center;
-    
+
   }
 }

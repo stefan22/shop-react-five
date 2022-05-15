@@ -5,13 +5,16 @@ import { UserProvider } from './contexts/user.context'
 import App from './App'
 //styles
 import './styles/main.scss'
+import { ProductsProvider } from './contexts/products.context'
 
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>
-      <div className="main-wrapper">
-        <App />
-      </div>
+      <ProductsProvider>
+        <div className="main-wrapper">
+          <App />
+        </div>
+      </ProductsProvider>
     </UserProvider>
   </BrowserRouter>,
 

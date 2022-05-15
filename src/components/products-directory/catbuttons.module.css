@@ -1,0 +1,23 @@
+._wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+a .category-item {
+    flex: 1 0 auto;
+    height: auto;
+    padding: 1.5rem 3rem;
+}

@@ -1,0 +1,156 @@
+.cart-button__wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  padding: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+
+  &:after {
+    height: 50px;
+  }
+
+
+}
+
+.cart-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #333;
+  padding: 0;
+  border: none;
+  position: relative;
+  background-color: transparent;
+
+  img {
+    max-width: 28px;
+    height: auto;
+  }
+
+  span {
+    display: inline-block;
+    padding-left: 10px;
+    height: 42px;
+    line-height: 3.25;
+
+  }
+}
+
+
+.product-card {
+  z-index: -1;
+
+
+  &:after, &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right center;
+    display: block;
+
+    .product-footer {
+      height: 50px;
+      overflow: hidden;
+      padding: 5px 10px;
+    }
+
+
+  }
+
+  &:after {
+    height: 100%;
+
+  }
+
+  &:after {
+    background-color: rgb(245 245 245 / 46%);
+    transform: scaleX(1);
+
+    transition: .4s transform ease-in-out;
+    z-index: -2;
+
+    .product-footer {
+      height: 50px;
+      overflow: hidden;
+      padding: 5px 10px;
+    }
+  }
+
+  &:before {
+    background-color: rgb(233 79 79 / 89%);
+    height: 100%;
+    overflow: hidden;
+    transition: .7s transform ease-in-out;
+    z-index: -1;
+
+    .product-footer {
+      height: 50px;
+      overflow: hidden;
+      padding: 5px 10px;
+    }
+  }
+
+  &:hover {
+    &:after, &:before {
+      height: 100%;
+      justify-content: flex-start;
+      transform: scaleX(1);
+      transform-origin: left center;
+      transition-delay: 0ms;
+    }
+
+    .cart-button__wrapper {
+      opacity: 1;
+      height: 54px;
+      overflow: hidden !important;
+
+      .cart-button {
+        color: white;
+
+      }
+    }
+
+    .product-footer {
+      height: 54px;
+      overflow: hidden;
+      padding: 5px 10px;
+
+
+      .product-price, .product-name {
+        visibility: hidden;
+        color: white;
+      }
+
+
+      &.__bottom {
+        visibility: hidden;
+      }
+
+      &.__top {
+        padding: 0;
+        visibility: hidden;
+      }
+
+
+    }
+
+    a {
+      transition: 1s transform ease-in-out;
+
+    }
+  }
+
+
+}

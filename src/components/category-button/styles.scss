@@ -24,6 +24,7 @@
       .category-item {
         cursor: pointer;
         opacity: 0.93;
+
         span {
           font-weight: var(--fontWeight-medium);
           transform: scaleX(1.1);
@@ -57,14 +58,13 @@
 
   &__title {
     margin-bottom: var(--spacing-01);
-
     @media screen and(min-width: 1281px) {
-      margin-bottom: var(--spacing-1);
+      border-bottom: none !important;
     }
   }
+
   &__subtitle {
-    transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
-      100ms;
+    transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 100ms;
 
     font-size: var(--fontSize-01);
     color: var(--color-blue);

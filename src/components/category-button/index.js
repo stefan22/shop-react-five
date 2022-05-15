@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.scss'
 
-const ProductCategory = ({ name, imageUrl, size, linkUrl }) => (
+const CategoryButton = ({ name, imageUrl, size, linkUrl }) => (
   <button
     style={{
       backgroundImage: `url(${imageUrl})`,
@@ -19,4 +19,4 @@ const ProductCategory = ({ name, imageUrl, size, linkUrl }) => (
   </button>
 )
 
-export default ProductCategory
+export default CategoryButton

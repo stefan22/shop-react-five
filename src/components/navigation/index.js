@@ -35,7 +35,7 @@ const Navigation = () => {
             <Link
               className="header-menu--link"
               onClick={signOutUser}
-              to={ROUTES.SIGNOUT}>
+              to={ROUTES.HOME}>
               SIGNOUT
             </Link>
           ) : (
