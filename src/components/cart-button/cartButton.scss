@@ -22,7 +22,7 @@
 .cart-button {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   color: #333;
   padding: 0;
@@ -48,7 +48,6 @@
 .product-card {
   z-index: -1;
 
-
   &:after, &:before {
     content: '';
     width: 100%;
@@ -65,8 +64,6 @@
       overflow: hidden;
       padding: 5px 10px;
     }
-
-
   }
 
   &:after {
@@ -77,7 +74,6 @@
   &:after {
     background-color: rgb(245 245 245 / 46%);
     transform: scaleX(1);
-
     transition: .4s transform ease-in-out;
     z-index: -2;
 
@@ -114,11 +110,28 @@
     .cart-button__wrapper {
       opacity: 1;
       height: 54px;
-      overflow: hidden !important;
+      overflow: hidden;
 
       .cart-button {
         color: white;
+        width: 100%;
 
+        svg {
+          max-width: 28px;
+          height: auto;
+          position: relative;
+        }
+
+        span {
+          font-size: 1rem;
+        }
+
+        .cart-count {
+          position: absolute;
+          left: 78px;
+          color: #333333;
+          top: 0;
+        }
       }
     }
 

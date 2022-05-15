@@ -9,6 +9,7 @@ const CartButton = ({ ...otherProps }) => (
       {...otherProps}>
       <Cart />
       <span>ADD TO CART</span>
+      <span className="cart-count">{0}</span>
     </button>
   </div>
 )
