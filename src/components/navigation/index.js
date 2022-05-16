@@ -10,7 +10,7 @@ import './styles.scss'
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser)
-  //console.log(currentUser)
+  console.log(currentUser)
 
   return (
     <div className="header">
