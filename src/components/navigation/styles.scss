@@ -19,6 +19,7 @@
   .logo-wrapper {
     flex: 0 1;
     filter: saturate(2);
+
     .logo {
       width: 54px;
       height: auto;
@@ -43,5 +44,31 @@
       display: flex;
       min-width: 75px;
     }
+  }
+}
+
+
+.topnav-cart {
+  height: 50px;
+  position: relative;
+  line-height: 3.25;
+  width: 50px;
+  top: -4px;
+  left: 0px;
+
+  img {
+    margin-left: 20px;
+    margin-right: 10px;
+    width: 31px;
+    height: 40px;
+  }
+
+  .cart-count {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 25px;
+    font-size: 0.9rem;
+    text-align: center;
   }
 }

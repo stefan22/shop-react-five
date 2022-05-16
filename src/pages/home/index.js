@@ -13,7 +13,7 @@ const HomePage = () => (
     className="home-wrapper">
     <h1>We're loaded! Browse our huge inventory!</h1>
     <ProductsDirectory />
-    <Outlet></Outlet>
+    <Outlet />
   </motion.div>
 )
 

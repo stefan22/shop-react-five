@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
-import { UserContext } from '../../contexts/user.context'
+import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectCurrentUser } from '../../redux-store/user/userSelector'
 import { signOutUser } from '../../firebase/firebase'
 import logo from '../../assets/mad-duck-logo.png'
 import cartIcon from '../../assets/images/shopping-bag.svg'
@@ -8,7 +9,8 @@ import * as ROUTES from '../../helpers/constants/routes'
 import './styles.scss'
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext)
+  const currentUser = useSelector(selectCurrentUser)
+  //console.log(currentUser)
 
   return (
     <div className="header">
@@ -32,23 +34,13 @@ const Navigation = () => {
             SHOP
           </Link>
 
-          {currentUser ? (
-            <>
-              <Link
-                className="header-menu--link"
-                onClick={signOutUser}
-                to={ROUTES.HOME}>
-                SIGNOUT
-              </Link>
-              <img
-                style={{ marginLeft: '20px', marginRight: '10px', lineHeight: 1 }}
-                src={cartIcon}
-                width={20}
-                height={20}
-                alt={'cart'}
-              />
-              <span className="cart-count">{0}</span>
-            </>
+          {currentUser !== null ? (
+            <Link
+              className="header-menu--link"
+              onClick={signOutUser}
+              to={ROUTES.HOME}>
+              SIGNOUT
+            </Link>
           ) : (
             <Link
               className="header-menu--link"
@@ -56,6 +48,18 @@ const Navigation = () => {
               SIGNIN
             </Link>
           )}
+
+          <Link
+            to={'/'}
+            className="topnav-cart">
+            <img
+              src={cartIcon}
+              width={31}
+              height={40}
+              alt={'cart'}
+            />
+            <span className="cart-count">{0}</span>
+          </Link>
         </div>
       </div>
     </div>
