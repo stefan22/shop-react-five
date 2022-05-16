@@ -3,12 +3,13 @@
  */
 
 export const HOME = '/'
-export const SHOP = '/shop'
+export const SHOP = '/shop/*'
 export const SIGNIN = '/signin'
 export const SIGNUP = '/signup'
 export const SIGNOUT = '/signout'
 export const ACCOUNT = '/account'
 export const ADMIN = '/admin'
+export const CHECKOUT = '/checkout'
 
 /*
  *  Categories

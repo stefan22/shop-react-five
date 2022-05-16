@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setCurrentUser } from './redux-store/user/userActions'
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListener,
+} from './firebase/firebase'
 import { AnimatePresence } from 'framer-motion'
 import Hats from './pages/categories/hats'
 //comps
@@ -11,41 +17,56 @@ import Signup from './pages/signup'
 //consts
 import * as ROUTES from './helpers/constants/routes'
 
-const App = () => (
-  <>
-    <Navigation />
-    <AnimatePresence exitBeforeEnter>
-      <Routes>
-        <Route
-          index
-          element={<HomePage />}
-        />
+const App = () => {
+  const dispatch = useDispatch()
 
-        <Route
-          exact
-          path={ROUTES.SHOP}
-          element={<ShopPage />}>
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener(user => {
+      if (user) {
+        createUserDocumentFromAuth(user)
+      }
+      dispatch(setCurrentUser(user))
+    })
+
+    return unsubscribe
+  }, [dispatch])
+
+  return (
+    <>
+      <Navigation />
+      <AnimatePresence exitBeforeEnter>
+        <Routes>
+          <Route
+            index
+            element={<HomePage />}
+          />
+
           <Route
             exact
             path={ROUTES.SHOP}
-            element={<Hats />}
+            element={<ShopPage />}>
+            <Route
+              exact
+              path={ROUTES.SHOP}
+              element={<Hats />}
+            />
+          </Route>
+
+          <Route
+            exact
+            path={ROUTES.SIGNIN}
+            element={<Signin />}
           />
-        </Route>
 
-        <Route
-          exact
-          path={ROUTES.SIGNIN}
-          element={<Signin />}
-        />
-
-        <Route
-          exact
-          path={ROUTES.SIGNUP}
-          element={<Signup />}
-        />
-      </Routes>
-    </AnimatePresence>
-  </>
-)
+          <Route
+            exact
+            path={ROUTES.SIGNUP}
+            element={<Signup />}
+          />
+        </Routes>
+      </AnimatePresence>
+    </>
+  )
+}
 
 export default App
