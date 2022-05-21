@@ -7,7 +7,7 @@ import {
   onAuthStateChangedListener,
 } from './firebase/firebase'
 import { AnimatePresence } from 'framer-motion'
-import Hats from './pages/categories/hats'
+import Hats from './pages/categories'
 //comps
 import Navigation from './components/navigation'
 import HomePage from './pages/home'
@@ -16,6 +16,10 @@ import Signin from './pages/signin'
 import Signup from './pages/signup'
 //consts
 import * as ROUTES from './helpers/constants/routes'
+import Categories from './pages/categories'
+import UsersPage from './pages/categories/UsersPage'
+import UserPage from './pages/categories/UserPage'
+
 
 const App = () => {
   const dispatch = useDispatch()
@@ -45,12 +49,28 @@ const App = () => {
             exact
             path={ROUTES.SHOP}
             element={<ShopPage />}>
+
             <Route
-              exact
-              path={ROUTES.SHOP}
-              element={<Hats />}
+
+              path={ROUTES.CATEGORIES}
+              element={<Categories />}
             />
+
           </Route>
+
+          <Route
+            exact
+            path={'/users'}
+            element={<UsersPage />}
+          />
+
+          <Route
+            exact
+            path={'/user/:userId'}
+            element={<UsersPage />}
+          />
+
+
 
           <Route
             exact
