@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ProductCard from '../product-card'
 import './shop-page.scss'
 import { gsap } from '../../gsap/gsap-core'
@@ -6,7 +7,19 @@ import { CSSPlugin } from '../../gsap/CSSPlugin'
 
 gsap.registerPlugin(CSSPlugin)
 
-const ProductsShowroom = ({ title, products: { products } }) => {
+const ProductsShowroom = ({ title, products }) => {
+  const { categories } = useParams()
+  const [cats, setCats] = useState([])
+
+  useEffect(() => {
+    let isMatch = categories === title.toLowerCase() ? categories : false
+    if (isMatch) {
+      setCats(products[title])
+    } else if (categories === undefined) {
+      setCats(products[title])
+    }
+  }, [categories])
+
   let tm = gsap.timeline()
   let shoref = useRef(null)
 
@@ -28,11 +41,15 @@ const ProductsShowroom = ({ title, products: { products } }) => {
 
   return (
     <div className="shop-show">
-      <h1 className="shop-show__title">{title}</h1>
+      {categories === title.toLowerCase() && (
+        <h1 className="shop-show__title">{title}</h1>
+      )}
+      {categories === undefined && <h1 className="shop-show__title">{title}</h1>}
       <div
         ref={ele => (shoref = ele)}
         className="shop-show__row">
-        {products[title].map(itm => (
+
+        {cats.map(itm => (
           <ProductCard
             key={itm.id}
             title={title}
@@ -42,6 +59,7 @@ const ProductsShowroom = ({ title, products: { products } }) => {
             cat={itm.cat}
           />
         ))}
+
       </div>
     </div>
   )

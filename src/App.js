@@ -5,24 +5,38 @@ import { setCurrentUser } from './redux-store/user/userActions'
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
+  getCategoriesAndDocuments,
 } from './firebase/firebase'
 import { AnimatePresence } from 'framer-motion'
-import Hats from './pages/categories'
+
 //comps
 import Navigation from './components/navigation'
 import HomePage from './pages/home'
 import ShopPage from './pages/shop'
 import Signin from './pages/signin'
 import Signup from './pages/signup'
+import Account from './pages/account'
 //consts
 import * as ROUTES from './helpers/constants/routes'
 import Categories from './pages/categories'
-import UsersPage from './pages/categories/UsersPage'
-import UserPage from './pages/categories/UserPage'
+import Category from './pages/category';
+
+
 
 
 const App = () => {
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    const getCategories = async () => {
+      return await getCategoriesAndDocuments();
+    }
+    getCategories().then(response => response)
+
+    return () => getCategories
+    },[])
+
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(user => {
@@ -40,6 +54,7 @@ const App = () => {
       <Navigation />
       <AnimatePresence exitBeforeEnter>
         <Routes>
+
           <Route
             index
             element={<HomePage />}
@@ -50,24 +65,27 @@ const App = () => {
             path={ROUTES.SHOP}
             element={<ShopPage />}>
 
-            <Route
+              <Route
+                exact
+                path={ROUTES.CATEGORIES}
+                element={<Categories />}
+              >
+                  <Route
+                    exact
+                    path={ROUTES.CATEGORY}
+                    element={<Category />}
+                  />
 
-              path={ROUTES.CATEGORIES}
-              element={<Categories />}
-            />
+              </Route>
 
           </Route>
 
-          <Route
-            exact
-            path={'/users'}
-            element={<UsersPage />}
-          />
+
 
           <Route
             exact
-            path={'/user/:userId'}
-            element={<UsersPage />}
+            path={ROUTES.ACCOUNT}
+            element={<Account />}
           />
 
 
@@ -83,7 +101,9 @@ const App = () => {
             path={ROUTES.SIGNUP}
             element={<Signup />}
           />
+
         </Routes>
+
       </AnimatePresence>
     </>
   )

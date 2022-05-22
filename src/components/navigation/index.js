@@ -10,13 +10,13 @@ import './styles.scss'
 const Navigation = () => {
   const currentUser = useSelector((state) => state.user.currentUser)
 
-
   return (
     <div className="header">
       <div className="header__inner-wrapper">
         <Link
           className="logo-wrapper"
           to={ROUTES.HOME}>
+
           <Outlet />
           <img
             src={logo}
@@ -26,6 +26,7 @@ const Navigation = () => {
             alt="logo"
           />
         </Link>
+
         <div className="header-menu">
           <Link
             className="header-menu--link"
@@ -34,12 +35,20 @@ const Navigation = () => {
           </Link>
 
           {currentUser !== null ? (
-            <Link
-              className="header-menu--link"
-              onClick={signOutUser}
-              to={ROUTES.HOME}>
-              SIGNOUT
-            </Link>
+            <>
+              <Link
+                  className="header-menu--link"
+                  to={ROUTES.ACCOUNT}>
+                  ACCOUNT
+              </Link>
+
+              <Link
+                className="header-menu--link"
+                onClick={signOutUser}
+                to={ROUTES.HOME}>
+                SIGNOUT
+              </Link>
+            </>
           ) : (
             <Link
               className="header-menu--link"

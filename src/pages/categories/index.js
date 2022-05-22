@@ -16,7 +16,7 @@ const Categories = ({ match, location }) => {
       </p>
       <p>
         <strong>User Name: </strong>
-      
+
       </p>
     </>
   );
