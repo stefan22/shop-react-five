@@ -6,18 +6,19 @@ import { store } from './redux-store/store'
 import App from './App'
 //styles
 import './styles/main.scss'
-import { ProductsProvider } from './contexts/products.context'
+
+store.subscribe(() => {
+  console.log('store ', store.getState())
+})
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <ProductsProvider>
-        <div className="main-wrapper">
-          <App />
-        </div>
-      </ProductsProvider>
-    </Provider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <div className="main-wrapper">
+        <App />
+      </div>
+    </BrowserRouter>
+  </Provider>,
 
   document.getElementById('root')
 )

@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './redux-store/user/userActions'
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
-  getCategoriesAndDocuments,
 } from './firebase/firebase'
 import { AnimatePresence } from 'framer-motion'
 
@@ -19,33 +18,18 @@ import Account from './pages/account'
 //consts
 import * as ROUTES from './helpers/constants/routes'
 import Categories from './pages/categories'
-import Category from './pages/category';
-
-
-
 
 const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const getCategories = async () => {
-      return await getCategoriesAndDocuments();
-    }
-    getCategories().then(response => response)
-
-    return () => getCategories
-    },[])
-
-
-
-  useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(user => {
       if (user) {
-        createUserDocumentFromAuth(user)
+        createUserDocumentFromAuth(user).then(res => {
+          dispatch(setCurrentUser(res.firestore._authCredentials))
+        })
       }
-      dispatch(setCurrentUser(user))
     })
-
     return unsubscribe
   }, [dispatch])
 
@@ -54,7 +38,6 @@ const App = () => {
       <Navigation />
       <AnimatePresence exitBeforeEnter>
         <Routes>
-
           <Route
             index
             element={<HomePage />}
@@ -63,32 +46,20 @@ const App = () => {
           <Route
             exact
             path={ROUTES.SHOP}
-            element={<ShopPage />}>
-
-              <Route
-                exact
-                path={ROUTES.CATEGORIES}
-                element={<Categories />}
-              >
-                  <Route
-                    exact
-                    path={ROUTES.CATEGORY}
-                    element={<Category />}
-                  />
-
-              </Route>
-
+            element={<ShopPage />}
+          >
+            <Route
+              exact
+              path={ROUTES.CATEGORIES}
+              element={<Categories />}
+            />
           </Route>
-
-
 
           <Route
             exact
             path={ROUTES.ACCOUNT}
             element={<Account />}
           />
-
-
 
           <Route
             exact
@@ -101,9 +72,7 @@ const App = () => {
             path={ROUTES.SIGNUP}
             element={<Signup />}
           />
-
         </Routes>
-
       </AnimatePresence>
     </>
   )

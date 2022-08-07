@@ -1,19 +1,21 @@
 import USER_ACTION_TYPES from './userTypes'
 
-export const USER_INITIAL_STATE = {
+const initialState = {
   currentUser: null,
 }
 
-export const userReducer = (state = USER_INITIAL_STATE, action = {}) => {
-  const { type, payload } = action;
+const userReducer = (state = initialState, action = {}) => {
+  const { type, payload } = action
 
   switch (type) {
     case USER_ACTION_TYPES.SET_CURRENT_USER:
       return {
         ...state,
-        currentUser: payload
+        currentUser: payload.auth.auth.currentUser,
       }
     default:
-      return state;
+      return state
   }
 }
+
+export default userReducer
