@@ -6,7 +6,8 @@ const CartButton = ({ ...otherProps }) => (
   <div className="cart-button__wrapper">
     <button
       className="cart-button"
-      {...otherProps}>
+      {...otherProps}
+    >
       <Cart />
       <span>ADD TO CART</span>
       <span className="cart-count">{0}</span>

@@ -5,12 +5,14 @@ const CustomButton = ({ disabled, children, ...otherProps }) => (
   <div className="custom-button__wrapper">
     <button
       className={`${disabled ? 'custom-button disabled' : 'custom-button'}`}
-      {...otherProps}>
+      {...otherProps}
+    >
       <svg
         width="198px"
         height="48px"
         viewBox="1 1 198 48"
-        className="border">
+        className="border"
+      >
         <polyline
           points="199,1, 199,47 3,47, 3,3, 199,3"
           className="bg-line"

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useCallback, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../product-card'
 import './shop-page.scss'
@@ -18,12 +18,12 @@ const ProductsShowroom = ({ title, products }) => {
     } else if (categories === undefined) {
       setCats(products[title])
     }
-  }, [categories])
+  }, [categories, products, title])
 
-  let tm = gsap.timeline()
   let shoref = useRef(null)
 
-  const doShowEntry = () => {
+  const doShowEntry = useCallback(() => {
+    let tm = gsap.timeline()
     tm.from(shoref, 1.15, {
       autoAlpha: 0,
       y: 0,
@@ -33,22 +33,24 @@ const ProductsShowroom = ({ title, products }) => {
       },
       ease: 'back.inOut',
     })
-  }
+  }, [])
 
   useEffect(() => {
     doShowEntry()
-  }, [])
+  }, [doShowEntry])
 
   return (
     <div className="shop-show">
       {categories === title.toLowerCase() && (
         <h1 className="shop-show__title">{title}</h1>
       )}
-      {categories === undefined && <h1 className="shop-show__title">{title}</h1>}
+      {categories === undefined && (
+        <h1 className="shop-show__title">{title}</h1>
+      )}
       <div
         ref={ele => (shoref = ele)}
-        className="shop-show__row">
-
+        className="shop-show__row"
+      >
         {cats.map(itm => (
           <ProductCard
             key={itm.id}
@@ -59,7 +61,6 @@ const ProductsShowroom = ({ title, products }) => {
             cat={itm.cat}
           />
         ))}
-
       </div>
     </div>
   )
