@@ -8,6 +8,7 @@ import App from './App'
 import './styles/main.scss'
 
 store.subscribe(() => {
+  // eslint-disable-next-line no-console
   console.log('store ', store.getState())
 })
 
