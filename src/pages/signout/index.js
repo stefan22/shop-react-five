@@ -6,7 +6,8 @@ const SignOut = props => (
   <button
     id="signout-button"
     type="button"
-    onClick={props.firebase.doSignOut}>
+    onClick={props.firebase.doSignOut}
+  >
     SIGN-OUT
   </button>
 )

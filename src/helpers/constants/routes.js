@@ -3,7 +3,7 @@
  */
 
 export const HOME = '/'
-export const SHOP = '/shop'
+export const SHOP = '/shop/'
 export const SIGNIN = '/signin'
 export const SIGNUP = '/signup'
 export const SIGNOUT = '/signout'

@@ -12,7 +12,8 @@ const Signup = props => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-      className="signin-up-wrapper">
+      className="signin-up-wrapper"
+    >
       <div className="row d-flex justify-content-center px-3">
         <div className="col-12 col-sm-6 px-0 px-sm-3">
           <SignUp {...props} />

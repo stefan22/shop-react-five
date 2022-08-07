@@ -6,7 +6,8 @@ const SignOut = props => (
   <button
     id="signout-button"
     type="button"
-    onClick={signOutUser}>
+    onClick={signOutUser}
+  >
     SIGN-OUT
   </button>
 )

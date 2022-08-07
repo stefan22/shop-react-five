@@ -15,7 +15,8 @@ const ShopPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-      className="shop-page">
+      className="shop-page"
+    >
       {categs.map(itm => (
         <ProductsShowroom
           key={itm}

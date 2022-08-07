@@ -28,7 +28,7 @@ const SignInForm = () => {
 
   const signInWithPopup = async () => {
     await signInWithGooglePopup()
-    createUserDocumentFromAuth();
+    createUserDocumentFromAuth()
   }
 
   const handleSubmit = async event => {
@@ -77,13 +77,15 @@ const SignInForm = () => {
         <div className={'sign-in-buttons__wrapper'}>
           <CustomButton
             svg={'true'}
-            type="submit">
+            type="submit"
+          >
             Sign in{' '}
           </CustomButton>
 
           <button
             onClick={signInWithPopup}
-            className="signin-with-google">
+            className="signin-with-google"
+          >
             SIGNIN WITH GOOGLE
           </button>
         </div>
