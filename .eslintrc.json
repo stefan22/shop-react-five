@@ -1,15 +1,21 @@
 {
-  "root": true,
   "env": {
+    "es6": true,
     "browser": true,
     "node": true
   },
   "parserOptions": {
-    "parser": "babel-eslint",
-    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
     "sourceType": "module"
   },
-
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -17,12 +23,16 @@
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
-
-  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "prettier"
+  ],
   "rules": {
     "no-case-declarations": 0,
     "react/prop-types": 0,
-    "no-unused-vars": 0,
+    "no-unused-vars": "off",
     "react/display-name": 0,
     "react/no-unescaped-entities": 0,
     "no-console": 1,
