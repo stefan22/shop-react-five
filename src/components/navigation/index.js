@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { signOutUser } from '../../firebase/firebase'
+import { signOutCurrentUser } from '../../redux-store/user/userActions'
 import { userSelector } from '../../redux-store/user/userSelector'
 import logo from '../../assets/mad-duck-logo.png'
 import cartIcon from '../../assets/images/shopping-bag.svg'
@@ -10,6 +11,17 @@ import './styles.scss'
 
 const Navigation = () => {
   const currentUser = useSelector(userSelector)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleSignOut = () => {
+    if (currentUser) {
+      signOutUser(currentUser).then(() => {
+        dispatch(signOutCurrentUser())
+        navigate(ROUTES.SIGNIN)
+      })
+    }
+  }
 
   return (
     <div className="header">
@@ -47,7 +59,7 @@ const Navigation = () => {
 
               <Link
                 className="header-menu--link"
-                onClick={signOutUser}
+                onClick={handleSignOut}
                 to={ROUTES.HOME}
               >
                 SIGNOUT

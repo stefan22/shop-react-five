@@ -1,14 +1,17 @@
+/* eslint-disable */
 import React from 'react'
-import { useLocation, useParams, Link } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 const Category = () => {
-  let category = useParams()
-  let path = useLocation()
+  const location = useLocation()
+  const category = useParams()
+  console.log(' location ', location)
+  console.log('product in category page ', category)
 
   return (
     <div>
       <h1>Category</h1>
-      category: {category}, path: {path}
+      category: {category}, location: {location}
     </div>
   )
 }

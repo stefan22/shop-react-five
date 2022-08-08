@@ -8,17 +8,17 @@ import { CSSPlugin } from '../../gsap/CSSPlugin'
 gsap.registerPlugin(CSSPlugin)
 
 const ProductsShowroom = ({ title, products }) => {
-  const { categories } = useParams()
+  const { categories: isCategory } = useParams()
   const [cats, setCats] = useState([])
 
   useEffect(() => {
-    let isMatch = categories === title.toLowerCase() ? categories : false
+    let isMatch = isCategory === title.toLowerCase() ? isCategory : false
     if (isMatch) {
       setCats(products[title])
-    } else if (categories === undefined) {
+    } else if (isCategory === undefined) {
       setCats(products[title])
     }
-  }, [categories, products, title])
+  }, [isCategory, products, title])
 
   let shoref = useRef(null)
 
@@ -41,26 +41,31 @@ const ProductsShowroom = ({ title, products }) => {
 
   return (
     <div className="shop-show">
-      {categories === title.toLowerCase() && (
+      {isCategory === title.toLowerCase() && ( //selected from: /
         <h1 className="shop-show__title">{title}</h1>
       )}
-      {categories === undefined && (
+
+      {isCategory === undefined && ( //selected from: /shop
         <h1 className="shop-show__title">{title}</h1>
       )}
+
       <div
         ref={ele => (shoref = ele)}
         className="shop-show__row"
       >
-        {cats.map(itm => (
-          <ProductCard
-            key={itm.id}
-            title={title}
-            name={itm.name}
-            imageUrl={itm.imageUrl}
-            price={itm.price}
-            cat={itm.cat}
-          />
-        ))}
+        {
+          //products in a category
+          cats.map(itm => (
+            <ProductCard
+              key={itm.id}
+              title={title}
+              name={itm.name}
+              imageUrl={itm.imageUrl}
+              price={itm.price}
+              cat={itm.cat}
+            />
+          ))
+        }
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { Routes, Route, Outlet } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentUser } from './redux-store/user/userActions'
 import {
   createUserDocumentFromAuth,
@@ -9,6 +9,9 @@ import {
 import { AnimatePresence } from 'framer-motion'
 
 //comps
+import Layout from './pages/layout'
+import Category from './pages/category'
+import Categories from './pages/categories'
 import Navigation from './components/navigation'
 import HomePage from './pages/home'
 import ShopPage from './pages/shop'
@@ -17,10 +20,10 @@ import Signup from './pages/signup'
 import Account from './pages/account'
 //consts
 import * as ROUTES from './helpers/constants/routes'
-import Categories from './pages/categories'
 
 const App = () => {
   const dispatch = useDispatch()
+  const categories = useSelector(state => state.categories)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(user => {
@@ -42,17 +45,27 @@ const App = () => {
             index
             element={<HomePage />}
           />
-
           <Route
-            exact
-            path={ROUTES.SHOP}
-            element={<ShopPage />}
-          >
+            path={ROUTES.HOME}
+            element={<HomePage />}
+          />
+
+          <Route element={<Layout categories={categories} />}>
             <Route
               exact
-              path={ROUTES.CATEGORIES}
-              element={<Categories />}
-            />
+              path={ROUTES.SHOP}
+              element={<ShopPage categories={categories} />}
+            >
+              <Route
+                path={ROUTES.CATEGORIES}
+                element={<Categories categories={categories} />}
+              >
+                <Route
+                  path={ROUTES.CATEGORY}
+                  element={<Category categories={categories} />}
+                />
+              </Route>
+            </Route>
           </Route>
 
           <Route
