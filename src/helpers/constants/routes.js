@@ -8,10 +8,7 @@ export const SIGNIN = '/signin'
 export const SIGNUP = '/signup'
 export const SIGNOUT = '/signout'
 export const ACCOUNT = '/account'
-export const ADMIN = '/admin'
-export const CHECKOUT = '/checkout'
-export const USER = '/users/:user'
-export const USERS = '/users'
+
 
 /*
  *  Categories

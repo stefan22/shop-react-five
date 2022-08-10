@@ -50,19 +50,19 @@ const App = () => {
             element={<HomePage />}
           />
 
-          <Route element={<Layout categories={categories} />}>
+          <Route element={<Layout />}>
             <Route
               exact
               path={ROUTES.SHOP}
-              element={<ShopPage categories={categories} />}
+              element={<ShopPage />}
             >
               <Route
                 path={ROUTES.CATEGORIES}
-                element={<Categories categories={categories} />}
+                element={<Categories  />}
               >
                 <Route
                   path={ROUTES.CATEGORY}
-                  element={<Category categories={categories} />}
+                  element={<Category />}
                 />
               </Route>
             </Route>
