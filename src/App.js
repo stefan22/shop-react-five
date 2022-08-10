@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, Outlet } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './redux-store/user/userActions'
 import {
   createUserDocumentFromAuth,
@@ -23,7 +23,6 @@ import * as ROUTES from './helpers/constants/routes'
 
 const App = () => {
   const dispatch = useDispatch()
-  const categories = useSelector(state => state.categories)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener(user => {
