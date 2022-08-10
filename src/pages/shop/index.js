@@ -6,6 +6,7 @@ import './styles.scss'
 
 const ShopPage = () => {
   let products = PRODUCTS_DATA // need to pass this data to firestore db
+  //separate products collection in db with a new products reducer
   const productsCategories = Object.keys(products)
 
   return (

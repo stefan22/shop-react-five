@@ -1,3 +1,7 @@
+/**
+ *  Reminder to create a branch without Firebase too
+ */
+
 export const CATEGORIES_DATA = [
   {
     name: 'HATS',
