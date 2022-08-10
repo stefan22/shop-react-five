@@ -2,12 +2,11 @@ import React from 'react'
 import ProductsShowroom from '../../components/products-bycategories'
 import { motion } from 'framer-motion'
 import { PRODUCTS_DATA } from '../../helpers/products.data'
-import { getCategoriesAndDocuments } from '../../firebase/firebase'
 import './styles.scss'
 
 const ShopPage = () => {
-  let products = PRODUCTS_DATA
-  const categs = Object.keys(products)
+  let products = PRODUCTS_DATA // need to pass this data to firestore db
+  const productsCategories = Object.keys(products)
 
   return (
     <motion.div
@@ -17,12 +16,11 @@ const ShopPage = () => {
       transition={{ duration: 1 }}
       className="shop-page"
     >
-      {categs.map(itm => (
+      {productsCategories.map(itm => (
         <ProductsShowroom
           key={itm}
           title={itm}
           products={products}
-          categories={categs}
         />
       ))}
     </motion.div>

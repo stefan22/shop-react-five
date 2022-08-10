@@ -1,22 +1,14 @@
+/* eslint-disable */
 import React from 'react'
-import { useLocation, useParams, Link } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
-const Categories = ({ match, location }) => {
-  const {
-    params: { userId },
-  } = match
+const Categories = () => {
+  const location = useLocation()
+  const categories = useParams()
+  console.log(' location ', location)
+  console.log('categories in categories ', categories)
 
-  return (
-    <>
-      <p>
-        <strong>User ID: </strong>
-        {userId}
-      </p>
-      <p>
-        <strong>User Name: </strong>
-      </p>
-    </>
-  )
+  return <p>Categories page</p>
 }
 
 export default Categories

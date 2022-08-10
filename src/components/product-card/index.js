@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom'
 import CartButton from '../cart-button'
 import './styles.scss'
 
-const ProductCard = ({ id, name, price, cat, imageUrl, title }) => (
+const ProductCard = ({
+  id,
+  name: productName,
+  price,
+  cat: category,
+  imageUrl,
+  title,
+}) => (
   <div
     key={id}
-    data-category={cat}
-    data-name={name}
+    data-category={category}
+    data-name={productName}
     data-price={price}
     className="product-card"
   >
-    <Link to={`/shop/${cat}/${name}`}>
+    <Link to={`/shop/${category}/${productName}`}>
       <div className="image-card">
         <img
           src={imageUrl}
