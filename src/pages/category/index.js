@@ -1,9 +1,7 @@
 /* eslint-disable */
-/**
- *  this page ongoing
- */
 import React from 'react'
 import { useLocation, useParams } from 'react-router-dom'
+import ProductCard from "../../components/product-card";
 
 const Category = () => {
   const location = useLocation()
@@ -13,8 +11,9 @@ const Category = () => {
 
   return (
     <div>
-      <h1>Category</h1>
-      category: {category}, location: {location}
+      <h1>Category</h1>al;dfjadf;afsdjl
+
+
     </div>
   )
 }

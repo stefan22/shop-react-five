@@ -24,6 +24,8 @@ const ShopPage = () => {
           products={products}
         />
       ))}
+
+
     </motion.div>
   )
 }
