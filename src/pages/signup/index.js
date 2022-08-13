@@ -3,7 +3,7 @@ import { SignUp } from '../../components/signin-signup/'
 //styles
 import './styles.scss'
 import { motion } from 'framer-motion'
-import signCover from '../../assets/images/covid.png'
+import signCover from '../../assets/images/signup/guyworking.png'
 
 const Signup = props => {
   return (

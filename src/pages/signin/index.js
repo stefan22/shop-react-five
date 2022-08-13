@@ -4,7 +4,7 @@ import { SignInForm } from '../../components/signin-signup'
 //styles
 import './styles.scss'
 import { motion } from 'framer-motion'
-import signCover from '../../assets/images/open2.jpeg'
+import signCover from '../../assets/images/open3.jpeg'
 
 const Signin = props => {
   return (
