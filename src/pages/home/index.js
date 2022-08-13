@@ -4,16 +4,25 @@ import { useDispatch } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import ProductsDirectory from '../../components/products-directory'
 import { fetchCategories } from '../../redux-store/categories/categoriesActions'
-import { getCategoriesAndDocuments } from '../../firebase/firebase'
+import {
+  getCategoriesAndDocuments,
+  getProductsAndDocuments,
+} from '../../firebase/firebase'
 
 import './styles.home.scss'
+import { fetchProducts } from '../../redux-store/products/productsActions'
 
 const HomePage = () => {
   const dispatch = useDispatch()
+
   useEffect(() => {
     let allCategories = getCategoriesAndDocuments()
-    allCategories.then(res => {
-      dispatch(fetchCategories(res))
+    let allProducts = getProductsAndDocuments()
+    allCategories.then(categories => {
+      dispatch(fetchCategories(categories))
+    })
+    allProducts.then(products => {
+      dispatch(fetchProducts(products))
     })
   }, [dispatch])
 

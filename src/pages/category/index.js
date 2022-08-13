@@ -1,21 +1,35 @@
-/* eslint-disable */
-/**
- *  this page ongoing
- */
-import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import ProductDetails from '../../components/product-details'
 
 const Category = () => {
-  const location = useLocation()
-  const category = useParams()
-  console.log(' location ', location)
-  console.log('product in category page ', category)
+  const { category, product } = useParams()
+  const [sele, setSele] = useState(null)
+  const matchProduct = useSelector(state => state.products).products
+
+  useEffect(() => {
+    const getProduct = () => {
+      return matchProduct?.map(itm => {
+        if (itm.cat === category && itm.name === product) {
+          setSele(itm)
+        }
+      })
+    }
+    getProduct()
+  }, [category, matchProduct, product])
 
   return (
-    <div>
-      <h1>Category</h1>
-      category: {category}, location: {location}
-    </div>
+    <>
+      {sele && (
+        <ProductDetails
+          name={sele.name}
+          price={sele.price}
+          cat={sele.cat}
+          imageUrl={sele.imageUrl}
+        />
+      )}
+    </>
   )
 }
 

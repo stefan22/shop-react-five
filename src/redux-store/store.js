@@ -3,12 +3,14 @@ import thunk from 'redux-thunk'
 import { logger } from 'redux-logger'
 import userReducer from './user/userReducer'
 import categoriesReducer from './categories/categoriesReducer'
+import productsReducer from './products/productsReducer'
 
 const initialState = {}
 
 const rootReducer = combineReducers({
   user: userReducer,
   categories: categoriesReducer,
+  products: productsReducer,
 })
 
 const middleWares = [

@@ -1,0 +1,45 @@
+.loader__wrapper {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader__container {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 5px solid rgb(225 227 187 / 70%);
+  border-radius: 50%;
+  border-top-color: #c8c37c7a;
+  background: #f8f9fa;
+  animation: nospinago 1s linear infinite;
+  outline: 3px solid ghostwhite;
+}
+
+.loader__container svg {
+  animation: spinago 5s ease-in-out infinite;
+  mix-blend-mode: luminosity;
+  filter: drop-shadow(-3px 1px 1px goldenrod);
+
+}
+
+span {
+  font-size:.6rem;
+  line-height: 3;
+  color: #454545;
+}
+
+@keyframes spinago {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nospinago {
+  to {
+    transform: rotate(360deg) perspective(40px);
+  }
+}

@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { gsap } from '../../gsap/gsap-core'
+import { CSSPlugin } from '../../gsap/CSSPlugin'
+gsap.registerPlugin(CSSPlugin)
 import CartButton from '../cart-button'
 import './styles.scss'
 
@@ -9,36 +12,56 @@ const ProductCard = ({
   price,
   cat: category,
   imageUrl,
-  title,
-}) => (
-  <div
-    key={id}
-    data-category={category}
-    data-name={productName}
-    data-price={price}
-    className="product-card"
-  >
-    <Link to={`/shop/${category}/${productName}`}>
-      <div className="image-card">
-        <img
-          src={imageUrl}
-          alt={name}
-          width={
-            title === 'Hats' || title === 'Women' || title === 'Men' ? 381 : 382
-          }
-          height="auto"
-        />
-      </div>
-      <CartButton />
-      <div className="product-footer">
-        <section className="product-footer__top">
-          <span className="product-name">{name}</span>
-          <span className="product-price">{price}</span>
-        </section>
-        <section className="product-footer__bottom"></section>
-      </div>
-    </Link>
-  </div>
-)
+}) => {
+  let shopro = useRef(null)
+  let tx = gsap.timeline()
+
+  useEffect(() => {
+    tx.from(shopro, 1.25, {
+      delay: 1,
+      autoAlpha: 0,
+      opacity: 0,
+      x: 0,
+      zIndex: -10,
+      ease: 'ease',
+    })
+
+    tx.play()
+
+    return () => tx
+  }, [tx])
+
+  return (
+    <div
+      key={id}
+      data-category={category}
+      data-name={productName}
+      data-price={price}
+      className="product-card"
+    >
+      <Link to={`/shop/${category}/${productName}`}>
+        <div className="image-card">
+          <img
+            src={imageUrl}
+            alt={name}
+            width={382}
+            height="auto"
+          />
+        </div>
+        <CartButton />
+        <div className="product-footer">
+          <section
+            ref={ele => (shopro = ele)}
+            className="product-footer__top"
+          >
+            <span className="product-name">{name}</span>
+            <span className="product-price">{price}</span>
+          </section>
+          <section className="product-footer__bottom"></section>
+        </div>
+      </Link>
+    </div>
+  )
+}
 
 export default ProductCard

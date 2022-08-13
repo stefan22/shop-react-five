@@ -1,73 +1,128 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../product-card'
 import './shop-page.scss'
 import { gsap } from '../../gsap/gsap-core'
 import { CSSPlugin } from '../../gsap/CSSPlugin'
-
 gsap.registerPlugin(CSSPlugin)
 
 const ProductsShowroom = ({ title, products }) => {
-  const { categories: isCategory } = useParams()
+  const { category: isCategory } = useParams()
   const [cats, setCats] = useState([])
 
   useEffect(() => {
-    let isMatch = isCategory === title.toLowerCase() ? isCategory : false
-    if (isMatch) {
-      setCats(products[title])
-    } else if (isCategory === undefined) {
-      setCats(products[title])
+    const getCatProducts = () => {
+      if (isCategory) {
+        let catProducts = products[isCategory].filter(itm => itm)
+        return setCats(catProducts)
+      }
     }
-  }, [isCategory, products, title])
+    getCatProducts()
+
+    return () => getCatProducts
+  }, [isCategory, products])
 
   let shoref = useRef(null)
+  let shoheader = useRef(null)
 
   const doShowEntry = useCallback(() => {
+    let grid = [7, 15]
     let tm = gsap.timeline()
-    tm.from(shoref, 1.15, {
-      autoAlpha: 0,
-      y: 0,
-      stagger: {
-        grid: 'auto',
-        each: 0.25,
+    let th = gsap.timeline()
+
+    th.from(
+      shoheader,
+      0.5,
+      {
+        delay: 0,
+        autoAlpha: 0,
+        x: -200,
+        opacity: 0,
+        ease: 'ease.easeIn',
       },
-      ease: 'back.inOut',
-    })
+      '+=.3'
+    )
+
+    tm.from(
+      shoref,
+      1.1,
+      {
+        autoAlpha: 0,
+        y: -10,
+        x: 20,
+        scaleX: 0.1,
+        xPercent: 0,
+        yoyo: true,
+        rotateX: -45,
+        stagger: {
+          each: 0.15,
+          amount: grid,
+          axis: 'both',
+          from: 'center',
+          ease: 'ease',
+        },
+        ease: 'power3.inOut',
+      },
+      '+=.1'
+    )
   }, [])
 
   useEffect(() => {
     doShowEntry()
+    return () => doShowEntry
   }, [doShowEntry])
 
+  const getUp = val => val.charAt(0).toUpperCase() + val.slice(1, val.length)
+
   return (
-    <div className="shop-show">
-      {isCategory === title.toLowerCase() && ( //selected from: /
-        <h1 className="shop-show__title">{title}</h1>
-      )}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="shop-show">
+        <header
+          ref={ele => (shoheader = ele)}
+          className="shop-show__header"
+        >
+          {isCategory === title && (
+            <h1 className="shop-show__title">{getUp(isCategory)}</h1>
+          )}
+        </header>
+        {!isCategory && <h1 className="shop-show__title">{getUp(title)}</h1>}
+        <div
+          ref={ele => (shoref = ele)}
+          className="shop-show__row"
+        >
+          {isCategory === title &&
+            cats.map((itm, idx) => (
+              <ProductCard
+                key={idx}
+                id={itm.name}
+                name={itm.name}
+                imageUrl={itm.imageUrl}
+                price={itm.price}
+                cat={itm.cat}
+              />
+            ))}
 
-      {isCategory === undefined && ( //selected from: /shop
-        <h1 className="shop-show__title">{title}</h1>
-      )}
-
-      <div
-        ref={ele => (shoref = ele)}
-        className="shop-show__row"
-      >
-        {
-          //products in a category
-          cats.map(itm => (
-            <ProductCard
-              key={itm.id}
-              title={title}
-              name={itm.name}
-              imageUrl={itm.imageUrl}
-              price={itm.price}
-              cat={itm.cat}
-            />
-          ))
-        }
+          {!isCategory &&
+            products[title].map((itm, idx) => (
+              <ProductCard
+                key={idx}
+                id={itm.name}
+                title={title}
+                name={itm.name}
+                imageUrl={itm.imageUrl}
+                price={itm.price}
+                cat={itm.cat}
+              />
+            ))}
+        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

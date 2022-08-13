@@ -9,10 +9,9 @@ export const SIGNUP = '/signup'
 export const SIGNOUT = '/signout'
 export const ACCOUNT = '/account'
 
-
 /*
  *  Categories
  * */
 
-export const CATEGORIES = ':categories'
-export const CATEGORY = ':category'
+export const CATEGORIES = '/shop/:category'
+export const CATEGORY = '/shop/:category/:product'

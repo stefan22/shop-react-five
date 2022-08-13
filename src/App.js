@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './redux-store/user/userActions'
 import {
@@ -9,9 +9,8 @@ import {
 import { AnimatePresence } from 'framer-motion'
 
 //comps
-import Layout from './pages/layout'
 import Category from './pages/category'
-import Categories from './pages/categories'
+import ProductsShowroom from './components/products-bycategories'
 import Navigation from './components/navigation'
 import HomePage from './pages/home'
 import ShopPage from './pages/shop'
@@ -49,23 +48,21 @@ const App = () => {
             element={<HomePage />}
           />
 
-          <Route element={<Layout />}>
+          <Route
+            exact
+            path={ROUTES.SHOP}
+            element={<ShopPage />}
+          >
             <Route
-              exact
-              path={ROUTES.SHOP}
-              element={<ShopPage />}
-            >
-              <Route
-                path={ROUTES.CATEGORIES}
-                element={<Categories  />}
-              >
-                <Route
-                  path={ROUTES.CATEGORY}
-                  element={<Category />}
-                />
-              </Route>
-            </Route>
+              path={ROUTES.CATEGORIES}
+              element={<ProductsShowroom />}
+            />
           </Route>
+
+          <Route
+            path={ROUTES.CATEGORY}
+            element={<Category />}
+          />
 
           <Route
             exact
