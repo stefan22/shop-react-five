@@ -13,5 +13,5 @@ export const ACCOUNT = '/account'
  *  Categories
  * */
 
-export const CATEGORIES = '/shop/:categories'
-export const CATEGORY = '/shop/:categories/:category'
+export const CATEGORIES = '/shop/:category'
+export const CATEGORY = '/shop/:category/:product'

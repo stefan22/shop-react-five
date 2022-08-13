@@ -1,13 +1,21 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import ProductsShowroom from '../../components/products-bycategories'
 import { motion } from 'framer-motion'
-import { PRODUCTS_DATA } from '../../helpers/products.data'
 import './styles.scss'
 
 const ShopPage = () => {
-  let products = PRODUCTS_DATA // need to pass this data to firestore db
-  //separate products collection in db with a new products reducer
-  const productsCategories = Object.keys(products)
+  const products = useSelector(state => state.products).products
+
+  function groupBy(arr, property) {
+    return arr.reduce((acc, cur) => {
+      acc[cur[property]] = [...(acc[cur[property]] || []), cur]
+      return acc
+    }, {})
+  }
+
+  let catgroups = groupBy(products, 'cat')
+  const productsCategories = Object.keys(catgroups)
 
   return (
     <motion.div
@@ -21,11 +29,9 @@ const ShopPage = () => {
         <ProductsShowroom
           key={itm}
           title={itm}
-          products={products}
+          products={catgroups}
         />
       ))}
-
-
     </motion.div>
   )
 }

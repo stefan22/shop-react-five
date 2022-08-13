@@ -14,14 +14,12 @@ const Navigation = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleSignOut = () => {
-    if (currentUser) {
-      signOutUser(currentUser).then(() => {
+  const handleSignOut = () =>
+      signOutUser().then(() => {
         dispatch(signOutCurrentUser())
         navigate(ROUTES.SIGNIN)
       })
-    }
-  }
+  
 
   return (
     <div className="header">

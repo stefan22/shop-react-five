@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from './redux-store/user/userActions'
 import {
@@ -60,8 +60,8 @@ const App = () => {
           </Route>
 
           <Route
-              path={ROUTES.CATEGORY}
-              element={<Category />}
+            path={ROUTES.CATEGORY}
+            element={<Category />}
           />
 
           <Route

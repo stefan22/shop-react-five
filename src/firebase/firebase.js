@@ -77,6 +77,15 @@ export const getCategoriesAndDocuments = async () => {
   return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
 }
 
+// importing products data from db
+export const getProductsAndDocuments = async () => {
+  const collectionRef = collection(db, 'products')
+  const q = query(collectionRef)
+
+  const querySnapshot = await getDocs(q)
+  return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
+}
+
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInformation = {}
