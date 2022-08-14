@@ -1,31 +1,39 @@
-name: 'Netlify Previews'
+name: Netlify workflow
 
 on:
-  push:
-    branches-ignore: 
-      - master
+  
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  deploy:
-    name: 'Deploy'
+  build:
+
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v1
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-      # Sets the branch name as environment variable
-      - uses: nelonoel/branch-name@v1.0.1
-      - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          deploy_alias: ${{ env.BRANCH_NAME }}
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - run: npm i
+    
+    - run: npm run build --if-present
+         
+    - name: Netlify Deploy
+      # uses: jsmrcaga/action-netlify-deploy@v1.7.1
+
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: netlify deploy --prod
       
-      # Creates a status check with link to preview
-      - name: Status check
-        uses: Sibz/github-status-action@v1.1.1
-        with:
-          authToken: ${{ secrets.GITHUB_TOKEN }}
-          context: Netlify preview
-          state: success
-          target_url: https://${{ env.BRANCH_NAME }}--shop-react-five.netlify.app
+      
