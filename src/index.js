@@ -8,11 +8,6 @@ import App from './App'
 //styles
 import './styles/main.scss'
 
-store.subscribe(() => {
-  // eslint-disable-next-line no-console
-  console.log('store ', store.getState())
-})
-
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate

@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import FormInput from '../form-input'
-import CustomButton from '../custom-button'
-import FormLink from './form-link'
+import { useNavigate }     from 'react-router-dom'
+import { useDispatch }     from 'react-redux'
+import FormInput           from '../form-input'
+import CustomButton        from '../custom-button'
+import FormLink            from './form-link'
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
-} from '../../firebase/firebase'
+}                          from '../../firebase/firebase'
 import './styles.scss'
+import {
+  signInFailed,
+  signUpCurrentUser
+} from "../../redux-store/user/userActions";
 
 const defaultFormFields = {
   displayName: '',
@@ -17,6 +22,7 @@ const defaultFormFields = {
 }
 
 const SignupForm = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { displayName, email, password, confirmPassword } = formFields
@@ -34,14 +40,16 @@ const SignupForm = () => {
 
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email, password)
-
       await createUserDocumentFromAuth(user, { displayName })
+      dispatch(signUpCurrentUser(user))
       resetFormFields()
       navigate('/account')
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
+        dispatch(signInFailed())
         alert('Cannot create user, email already in use')
       } else {
+        dispatch(signInFailed())
         // eslint-disable-next-line no-console
         console.log('user creation encountered an error', error)
       }
