@@ -66,6 +66,8 @@ const ProductsShowroom = ({ title, products }) => {
       },
       '+=.1'
     )
+    th.play()
+    tm.play()
   }, [shoref, shoheader])
 
   useEffect(() => {

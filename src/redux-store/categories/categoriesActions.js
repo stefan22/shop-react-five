@@ -1,6 +1,6 @@
 import CATEGORIES_ACTIONS_TYPES from './categoriesTypes'
 import { createAction } from '../../helpers/redux/createAction'
-import { getCategoriesAndDocuments} from "../../firebase/firebase";
+import { getCategoriesAndDocuments } from '../../firebase/firebase'
 
 // types
 const { SET_CATEGORIES_START, SET_CATEGORIES_SUCCESS, SET_CATEGORIES_FAILURE } =
@@ -17,11 +17,11 @@ export const fetchCategoriesFailed = error =>
 
 // thunks
 export const fetchCategoriesAsync = () => async dispatch => {
-    dispatch(fetchCategoriesStart())
-    try {
-        const categoriesArray = await getCategoriesAndDocuments()
-        dispatch(fetchCategoriesSuccess(categoriesArray))
-    } catch (error) {
-        dispatch(fetchCategoriesFailed(error))
-    }
+  dispatch(fetchCategoriesStart())
+  try {
+    const categoriesArray = await getCategoriesAndDocuments()
+    dispatch(fetchCategoriesSuccess(categoriesArray))
+  } catch (error) {
+    dispatch(fetchCategoriesFailed(error))
+  }
 }

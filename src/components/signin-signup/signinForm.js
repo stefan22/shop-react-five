@@ -5,7 +5,6 @@ import FormInput from '../form-input'
 import CustomButton from '../custom-button'
 // firebase api
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from '../../firebase/firebase'
@@ -28,7 +27,6 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup()
-    createUserDocumentFromAuth()
   }
 
   const handleSubmit = async event => {
