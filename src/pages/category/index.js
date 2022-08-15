@@ -2,31 +2,34 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import ProductDetails from '../../components/product-details'
+import Loading from '../../components/loading'
 
 const Category = () => {
   const { category, product } = useParams()
   const [sele, setSele] = useState(null)
-  const matchProduct = useSelector(state => state.products).products
+  const { loading, products: allProducts } = useSelector(
+    state => state.products
+  )
 
   useEffect(() => {
-    const getProduct = () => {
-      return matchProduct?.map(itm => {
-        if (itm.cat === category && itm.name === product) {
-          setSele(itm)
-        }
-      })
-    }
-    getProduct()
-  }, [category, matchProduct, product])
+    let selectedProduct = allProducts?.find(
+      itm => itm.cat === category && itm.name === product
+    )
+    setSele(selectedProduct)
+  }, [category, product])
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <>
-      {sele && (
+      {!loading && (
         <ProductDetails
-          name={sele.name}
-          price={sele.price}
-          cat={sele.cat}
-          imageUrl={sele.imageUrl}
+          name={sele?.name}
+          price={sele?.price}
+          cat={sele?.cat}
+          imageUrl={sele?.imageUrl}
         />
       )}
     </>

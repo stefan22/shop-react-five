@@ -3,9 +3,8 @@ import { withFirebase } from '../../../../firebase'
 import './styles.scss'
 
 /**
- * Signout working fine but
- * Atm signing out directly wit FB function - so use it or loose it
- * Ideally need an action creator for this component
+ * Should use it for signin and signout with an svg icon
+ * as a re-usable component.
  */
 
 const SignOut = props => (
