@@ -14,11 +14,11 @@ const Navigation = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleSignOut = () =>
-    signOutUser().then(() => {
-      dispatch(signOutCurrentUser())
-      navigate(ROUTES.SIGNIN)
-    })
+  const handleSignOut = async () => {
+    await signOutUser()
+    dispatch(signOutCurrentUser())
+    navigate(ROUTES.SIGNIN)
+  }
 
   return (
     <div className="header">
@@ -57,7 +57,7 @@ const Navigation = () => {
               <Link
                 className="header-menu--link"
                 onClick={handleSignOut}
-                to={ROUTES.HOME}
+                to={ROUTES.SIGNIN}
               >
                 SIGNOUT
               </Link>
@@ -72,7 +72,7 @@ const Navigation = () => {
           )}
 
           <Link
-            to={'/'}
+            to={ROUTES.HOME}
             className="topnav-cart"
           >
             <img

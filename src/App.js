@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setCurrentUser } from './redux-store/user/userActions'
+import { signInCurrentUser } from './redux-store/user/userActions'
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
 } from './firebase/firebase'
 import { AnimatePresence } from 'framer-motion'
-
 //comps
 import Category from './pages/category'
 import ProductsShowroom from './components/products-bycategories'
@@ -27,7 +26,7 @@ const App = () => {
     const unsubscribe = onAuthStateChangedListener(user => {
       if (user) {
         createUserDocumentFromAuth(user).then(res => {
-          dispatch(setCurrentUser(res.firestore._authCredentials))
+          dispatch(signInCurrentUser(res.firestore._authCredentials))
         })
       }
     })
