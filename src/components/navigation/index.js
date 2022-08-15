@@ -15,11 +15,10 @@ const Navigation = () => {
   const dispatch = useDispatch()
 
   const handleSignOut = () =>
-      signOutUser().then(() => {
-        dispatch(signOutCurrentUser())
-        navigate(ROUTES.SIGNIN)
-      })
-  
+    signOutUser().then(() => {
+      dispatch(signOutCurrentUser())
+      navigate(ROUTES.SIGNIN)
+    })
 
   return (
     <div className="header">

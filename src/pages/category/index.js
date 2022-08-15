@@ -16,7 +16,7 @@ const Category = () => {
       itm => itm.cat === category && itm.name === product
     )
     setSele(selectedProduct)
-  }, [category, product])
+  }, [category, product, allProducts])
 
   if (loading) {
     return <Loading />

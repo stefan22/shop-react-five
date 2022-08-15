@@ -2,7 +2,7 @@ import CATEGORIES_ACTIONS_TYPES from './categoriesTypes'
 
 const INITIAL_STATE = {
   categories: [],
-  loading: false,
+  loading: true,
   error: null,
 }
 
@@ -16,18 +16,17 @@ const categoriesReducer = (state = INITIAL_STATE, action = {}) => {
 
   switch (type) {
     case SET_CATEGORIES_START:
-      console.log('loading', state.loading)
       return {
-
         ...state,
         loading: true,
+        error: null,
       }
     case SET_CATEGORIES_SUCCESS:
-      console.log('loading', state.loading)
       return {
         ...state,
         categories: payload,
         loading: false,
+        error: null,
       }
     case SET_CATEGORIES_FAILURE:
       return {
