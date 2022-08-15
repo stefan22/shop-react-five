@@ -26,7 +26,7 @@ const SignInForm = () => {
     setFormFields(defaultFormFields)
   }
 
-  const signInWithPopup = async () => {
+  const signInWithGoogle = async () => {
     await signInWithGooglePopup()
     createUserDocumentFromAuth()
   }
@@ -83,7 +83,7 @@ const SignInForm = () => {
           </CustomButton>
 
           <button
-            onClick={signInWithPopup}
+            onClick={signInWithGoogle}
             className="signin-with-google"
           >
             SIGNIN WITH GOOGLE

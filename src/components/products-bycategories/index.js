@@ -66,7 +66,7 @@ const ProductsShowroom = ({ title, products }) => {
       },
       '+=.1'
     )
-  }, [])
+  }, [shoref, shoheader])
 
   useEffect(() => {
     doShowEntry()

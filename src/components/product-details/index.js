@@ -33,7 +33,7 @@ const ProductDetails = ({ name, price, imageUrl }) => {
     )
 
     tl.play()
-  }, [])
+  }, [proRef])
 
   useEffect(() => {
     productShow()
