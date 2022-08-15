@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { signInCurrentUser } from './redux-store/user/userActions'
@@ -12,12 +12,14 @@ import Category from './pages/category'
 import ProductsShowroom from './components/products-bycategories'
 import Navigation from './components/navigation'
 import HomePage from './pages/home'
-import ShopPage from './pages/shop'
 import Signin from './pages/signin'
-import Signup from './pages/signup'
-import Account from './pages/account'
+import Loading from './components/loading'
 //consts
 import * as ROUTES from './helpers/constants/routes'
+//lazy loading
+const ShopPage = lazy(() => import('./pages/shop'))
+const Signup = lazy(() => import('./pages/signup'))
+const Account = lazy(() => import('./pages/account'))
 
 const App = () => {
   const dispatch = useDispatch()
@@ -34,7 +36,7 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Navigation />
       <AnimatePresence exitBeforeEnter>
         <Routes>
@@ -82,7 +84,7 @@ const App = () => {
           />
         </Routes>
       </AnimatePresence>
-    </>
+    </Suspense>
   )
 }
 
