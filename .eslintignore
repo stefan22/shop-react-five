@@ -13,3 +13,8 @@
 src/gsap/
 .idea
 !/.prettierignore
+
+# cypress
+**/*.cy.js
+
+assets/**/*
