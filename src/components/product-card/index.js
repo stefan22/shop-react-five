@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useCallback, memo } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from '../../gsap/gsap-core'
 import { CSSPlugin } from '../../gsap/CSSPlugin'
@@ -6,7 +6,7 @@ gsap.registerPlugin(CSSPlugin)
 import CartButton from '../cart-button'
 import './styles.scss'
 
-const ProductCard = ({
+const ProductCard = memo(({
   id,
   name: productName,
   price,
@@ -66,6 +66,6 @@ const ProductCard = ({
       </Link>
     </div>
   )
-}
+})
 
 export default ProductCard
