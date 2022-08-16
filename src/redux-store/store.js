@@ -27,11 +27,13 @@ const composeEnhancer =
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['user']
 }
+
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const enhancer = composeEnhancer(applyMiddleware(...middleWares))
 
 export const store = createStore(persistedReducer, undefined, enhancer)
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

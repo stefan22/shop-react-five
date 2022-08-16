@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npx cypress run --browser chrome",
     "eject": "react-scripts eject",
     "prettier": "prettier --check '**/*.{js,jsx}'",
     "prettier:fix": "prettier --write '**/*.{js,jsx}'",
