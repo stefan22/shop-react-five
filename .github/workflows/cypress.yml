@@ -18,7 +18,7 @@ jobs:
          with:
            node-version: "16.x"
 
-      -  name: run cypress tests
+      -  name: run Cypress tests
          uses: cypress-io/github-action@v2
          with:
            browser: chrome

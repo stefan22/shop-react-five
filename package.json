@@ -27,7 +27,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npx cypress run --browser chrome",
+    "test": "npm run start & cypress run",
+    "cy:open": "cypress open --config-file=cypress.config.js",
+    "cy:run": "cypress run",
     "eject": "react-scripts eject",
     "prettier": "prettier --check '**/*.{js,jsx}'",
     "prettier:fix": "prettier --write '**/*.{js,jsx}'",
