@@ -3,27 +3,16 @@ import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import ProductsDirectory from '../../components/products-directory'
-import { fetchCategories } from '../../redux-store/categories/categoriesActions'
-import {
-  getCategoriesAndDocuments,
-  getProductsAndDocuments,
-} from '../../firebase/firebase'
-
+import { fetchCategoriesAsync } from '../../redux-store/categories/categoriesActions'
 import './styles.home.scss'
-import { fetchProducts } from '../../redux-store/products/productsActions'
+import { fetchProductsAsync } from '../../redux-store/products/productsActions'
 
 const HomePage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    let allCategories = getCategoriesAndDocuments()
-    let allProducts = getProductsAndDocuments()
-    allCategories.then(categories => {
-      dispatch(fetchCategories(categories))
-    })
-    allProducts.then(products => {
-      dispatch(fetchProducts(products))
-    })
+    dispatch(fetchCategoriesAsync())
+    dispatch(fetchProductsAsync())
   }, [dispatch])
 
   return (

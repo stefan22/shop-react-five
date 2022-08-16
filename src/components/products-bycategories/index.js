@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef, useState } from 'react'
+import React, { useEffect, useCallback, useRef, useState, memo } from 'react'
 import { motion } from 'framer-motion'
 import { useParams } from 'react-router-dom'
 import ProductCard from '../product-card'
@@ -7,7 +7,7 @@ import { gsap } from '../../gsap/gsap-core'
 import { CSSPlugin } from '../../gsap/CSSPlugin'
 gsap.registerPlugin(CSSPlugin)
 
-const ProductsShowroom = ({ title, products }) => {
+const ProductsShowroom = memo(({ title, products }) => {
   const { category: isCategory } = useParams()
   const [cats, setCats] = useState([])
 
@@ -15,13 +15,11 @@ const ProductsShowroom = ({ title, products }) => {
     const getCatProducts = () => {
       if (isCategory) {
         let catProducts = products[isCategory].filter(itm => itm)
-        return setCats(catProducts)
+        setCats(catProducts)
       }
     }
-    getCatProducts()
-
-    return () => getCatProducts
-  }, [isCategory, products])
+    let productsCategories = getCatProducts()
+  }, [isCategory, products, setCats])
 
   let shoref = useRef(null)
   let shoheader = useRef(null)
@@ -66,7 +64,9 @@ const ProductsShowroom = ({ title, products }) => {
       },
       '+=.1'
     )
-  }, [])
+    th.play()
+    tm.play()
+  }, [shoref, shoheader])
 
   useEffect(() => {
     doShowEntry()
@@ -124,6 +124,6 @@ const ProductsShowroom = ({ title, products }) => {
       </div>
     </motion.div>
   )
-}
+})
 
 export default ProductsShowroom

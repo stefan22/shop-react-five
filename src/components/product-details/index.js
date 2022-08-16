@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useRef } from 'react'
+import React, { useEffect, useCallback, memo, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { gsap } from '../../gsap/gsap-core'
@@ -7,7 +7,7 @@ gsap.registerPlugin(CSSPlugin)
 import CustomButton from '../custom-button'
 import styles from './product-details.module.css'
 
-const ProductDetails = ({ name, price, imageUrl }) => {
+const ProductDetails = memo(({ name, price, imageUrl }) => {
   let proRef = useRef(null)
 
   const productShow = useCallback(() => {
@@ -33,7 +33,7 @@ const ProductDetails = ({ name, price, imageUrl }) => {
     )
 
     tl.play()
-  }, [])
+  }, [proRef])
 
   useEffect(() => {
     productShow()
@@ -136,6 +136,6 @@ const ProductDetails = ({ name, price, imageUrl }) => {
       </div>
     </motion.div>
   )
-}
+})
 
 export default ProductDetails

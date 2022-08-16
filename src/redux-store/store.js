@@ -7,7 +7,6 @@ import userReducer from './user/userReducer'
 import categoriesReducer from './categories/categoriesReducer'
 import productsReducer from './products/productsReducer'
 
-
 const rootReducer = combineReducers({
   user: userReducer,
   categories: categoriesReducer,
@@ -30,6 +29,7 @@ const persistConfig = {
   storage,
   blacklist: ['user']
 }
+
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const enhancer = composeEnhancer(applyMiddleware(...middleWares))

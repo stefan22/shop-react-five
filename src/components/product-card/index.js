@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useCallback, memo } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from '../../gsap/gsap-core'
 import { CSSPlugin } from '../../gsap/CSSPlugin'
@@ -6,7 +6,7 @@ gsap.registerPlugin(CSSPlugin)
 import CartButton from '../cart-button'
 import './styles.scss'
 
-const ProductCard = ({
+const ProductCard = memo(({
   id,
   name: productName,
   price,
@@ -14,9 +14,9 @@ const ProductCard = ({
   imageUrl,
 }) => {
   let shopro = useRef(null)
-  let tx = gsap.timeline()
 
-  useEffect(() => {
+  const cardEntry = useCallback(() => {
+    let tx = gsap.timeline()
     tx.from(shopro, 1.25, {
       delay: 1,
       autoAlpha: 0,
@@ -27,9 +27,13 @@ const ProductCard = ({
     })
 
     tx.play()
+  }, [shopro])
 
-    return () => tx
-  }, [tx])
+  useEffect(() => {
+    cardEntry()
+
+    return () => cardEntry
+  }, [cardEntry])
 
   return (
     <div
@@ -62,6 +66,6 @@ const ProductCard = ({
       </Link>
     </div>
   )
-}
+})
 
 export default ProductCard

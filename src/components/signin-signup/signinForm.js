@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 //components
 import FormLink from './form-link'
 import FormInput from '../form-input'
 import CustomButton from '../custom-button'
+import { signInCurrentUser, signInGoogleCurrentUser, signInFailed } from '../../redux-store/user/userActions'
 // firebase api
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from '../../firebase/firebase'
@@ -19,6 +20,7 @@ const defaultFormFields = {
 }
 
 const SignInForm = () => {
+  const dispatch = useDispatch()
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { email, password } = formFields
 
@@ -26,17 +28,19 @@ const SignInForm = () => {
     setFormFields(defaultFormFields)
   }
 
-  const signInWithPopup = async () => {
+  const signInWithGoogle = async () => {
     await signInWithGooglePopup()
-    createUserDocumentFromAuth()
+    dispatch(signInGoogleCurrentUser())
   }
 
   const handleSubmit = async event => {
     event.preventDefault()
     try {
       await signInAuthUserWithEmailAndPassword(email, password)
+      dispatch(signInCurrentUser())
       resetFormFields()
     } catch (error) {
+        dispatch(signInFailed())
       // eslint-disable-next-line no-console
       console.log(error)
     }
@@ -83,7 +87,7 @@ const SignInForm = () => {
           </CustomButton>
 
           <button
-            onClick={signInWithPopup}
+            onClick={signInWithGoogle}
             className="signin-with-google"
           >
             SIGNIN WITH GOOGLE
