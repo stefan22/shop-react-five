@@ -13,10 +13,22 @@ jobs:
       -  name: Checkout repository code
          uses: actions/checkout@v2
 
+      -  name: Install dependencies
+         uses: actions/setup-node@v2
+         with:
+           node-version: "16.x"
+
       -  name: run cypress tests
          uses: cypress-io/github-action@v2
-         timeout-minutes: 10
          with:
-           browser: chrome  
+           browser: chrome
+           headless: true
+      -  name: upload failure screenshots
+         uses: actions/upload-artifact@v2
+         if: failure()
+         with:
+           name: failure-screenshots
+           path: "cypress/screenshots/**/*.png"
+
 
 

@@ -22,8 +22,10 @@ const Navigation = () => {
 
   return (
     <div className="header">
-      <div className="header__inner-wrapper">
+      <nav
+          className="header__inner-wrapper">
         <Link
+          data-test="navigation-link"
           className="logo-wrapper"
           to={ROUTES.HOME}
         >
@@ -39,6 +41,7 @@ const Navigation = () => {
 
         <div className="header-menu">
           <Link
+            data-test="navigation-link"
             className="header-menu--link"
             to={ROUTES.SHOP}
           >
@@ -48,6 +51,7 @@ const Navigation = () => {
           {currentUser?.uid ? (
             <>
               <Link
+                data-test="navigation-link"
                 className="header-menu--link"
                 to={ROUTES.ACCOUNT}
               >
@@ -55,6 +59,7 @@ const Navigation = () => {
               </Link>
 
               <Link
+                data-test="navigation-link"
                 className="header-menu--link"
                 onClick={handleSignOut}
                 to={ROUTES.SIGNIN}
@@ -64,6 +69,7 @@ const Navigation = () => {
             </>
           ) : (
             <Link
+              data-test="navigation-link"
               className="header-menu--link"
               to={ROUTES.SIGNIN}
             >
@@ -72,6 +78,7 @@ const Navigation = () => {
           )}
 
           <Link
+            data-test="navigation-link"
             to={ROUTES.HOME}
             className="topnav-cart"
           >
@@ -84,7 +91,7 @@ const Navigation = () => {
             <span className="cart-count">{0}</span>
           </Link>
         </div>
-      </div>
+      </nav>
     </div>
   )
 }
