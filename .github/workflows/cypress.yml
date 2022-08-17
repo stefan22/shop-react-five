@@ -1,4 +1,4 @@
-name: Cypress tests
+name: cypress tests
 on:
   push:
     branches:
@@ -18,8 +18,9 @@ jobs:
          with:
            node-version: "16.x"
 
-      -  name: run Cypress tests
+      -  name: run cypress tests
          uses: cypress-io/github-action@v2
          with:
            browser: chrome
            headless: true
+
