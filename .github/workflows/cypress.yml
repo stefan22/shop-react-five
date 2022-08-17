@@ -1,4 +1,4 @@
-name: Cypress tests
+name: cypress tests
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -  run: echo "Job automatically triggered by ${{ github.event_name }} event."
-      
+
       -  name: Checkout repository code
          uses: actions/checkout@v2
 
