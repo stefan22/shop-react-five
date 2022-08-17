@@ -16,3 +16,5 @@ src/gsap/
 
 # cypress
 **/*.cy.js
+
+assets/**/*

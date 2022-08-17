@@ -2,7 +2,7 @@
 
 describe('Shop React Five App', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
   })
 
   it('renders "We\'re loaded! Browse our huge inventory! near top of home page"', () => {

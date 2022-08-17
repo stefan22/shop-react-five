@@ -1,25 +1,16 @@
-name: Cypress tests
-on:
-  push:
-    branches:
-      -  "main"
-
+name: End-to-end tests
+on: [push]
 jobs:
-  checkout-and-test:
+  cypress-run: # Job name
     runs-on: ubuntu-latest
     steps:
-      -  run: echo "Job automatically triggered by ${{ github.event_name }} event."
-
-      -  name: Checkout repository code
-         uses: actions/checkout@v2
-
-      -  name: setup node
-         uses: actions/setup-node@v2
-         with:
-           node-version: "16.x"
-
-      -  name: run Cypress tests
-         uses: cypress-io/github-action@v2
-         with:
-           browser: chrome
-           headless: true
+      - name: Checkout # Step name
+        uses: actions/checkout@v2 # checks out the repository
+      - name: Install node # Step name
+        uses: actions/setup-node@v2 # installs node
+        with:
+          node-version: '16.x' # version of node to install
+      - name: Install dependencies # Step name
+        run: npm install --legacy-peer-deps # installs dependencies
+      - name: Cypress run # Step name
+        uses: cypress-io/github-action@v4  # runs tests - v2 uses cypress.json

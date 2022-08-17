@@ -27,9 +27,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npm run start & cypress run",
-    "cy:open": "cypress open --config-file=cypress.config.js",
-    "cy:run": "cypress run",
+    "test": "react-scripts test",
+    "e2e": "cypress run --browser chrome",
+    "cypress:open": "cypress open --e2e",
+    "cypress:run": "cypress run",
     "eject": "react-scripts eject",
     "prettier": "prettier --check '**/*.{js,jsx}'",
     "prettier:fix": "prettier --write '**/*.{js,jsx}'",
@@ -44,9 +45,11 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^8.0.3",
     "babel-eslint": "^10.1.0",
-    "cypress": "^10.5.0",
+    "cypress": "^10.6.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
@@ -65,5 +68,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "overrides": [
+    {
+      "extends": [
+        "plugin: cypress/recommended"
+      ],
+      "files": [
+        "cypress/**/*.js"
+      ]
+    }
+  ]
 }
