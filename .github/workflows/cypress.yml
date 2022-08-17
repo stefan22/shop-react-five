@@ -1,6 +1,7 @@
 name: End-to-end tests
 on: [push]
 jobs:
+
   cypress-run: # Job name
     runs-on: ubuntu-latest
     steps:
@@ -14,3 +15,8 @@ jobs:
         run: npm install --legacy-peer-deps # installs dependencies
       - name: Cypress run # Step name
         uses: cypress-io/github-action@v4  # runs tests - v2 uses cypress.json
+        with:
+          start:  "npm run cypress:run"
+          wait-on:  "http://localhost:3000"
+          config: baseUrl=http://localhost:3000
+          
