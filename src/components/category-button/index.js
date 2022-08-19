@@ -5,7 +5,7 @@ import './styles.scss'
 const CategoryButton = ({ name, imageUrl, size, linkUrl }) => {
   return (
     <button
-        data-test="home-pg-category"
+      data-test="home-pg-category"
       style={{
         backgroundImage: `url(../images/categories/${imageUrl}.jpg)`,
         backgroundSize: 'cover',
@@ -16,8 +16,11 @@ const CategoryButton = ({ name, imageUrl, size, linkUrl }) => {
       <Link to={`/${linkUrl}`}>
         <div className="category-item">
           <h1
-              data-test="home-pg-category-name"
-              className="category-item__title">{name}</h1>
+            data-test="home-pg-category-name"
+            className="category-item__title"
+          >
+            {name}
+          </h1>
           <span className="category-item__subtitle">SHOP NOW</span>
         </div>
       </Link>

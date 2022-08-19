@@ -4,7 +4,11 @@ import { useDispatch } from 'react-redux'
 import FormLink from './form-link'
 import FormInput from '../form-input'
 import CustomButton from '../custom-button'
-import { signInCurrentUser, signInGoogleCurrentUser, signInFailed } from '../../redux-store/user/userActions'
+import {
+  signInCurrentUser,
+  signInGoogleCurrentUser,
+  signInFailed,
+} from '../../redux-store/user/userActions'
 // firebase api
 import {
   signInAuthUserWithEmailAndPassword,
@@ -40,7 +44,7 @@ const SignInForm = () => {
       dispatch(signInCurrentUser())
       resetFormFields()
     } catch (error) {
-        dispatch(signInFailed())
+      dispatch(signInFailed())
       // eslint-disable-next-line no-console
       console.log(error)
     }

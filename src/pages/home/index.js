@@ -23,7 +23,9 @@ const HomePage = () => {
       transition={{ duration: 1 }}
       className="home-wrapper"
     >
-      <h1 data-test="home-pg-heading">We're loaded! Browse our huge inventory!</h1>
+      <h1 data-test="home-pg-heading">
+        We're loaded! Browse our huge inventory!
+      </h1>
       <ProductsDirectory />
       <Outlet />
     </motion.div>
