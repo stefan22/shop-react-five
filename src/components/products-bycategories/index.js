@@ -82,7 +82,10 @@ const ProductsShowroom = memo(({ title, products }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      <div className="shop-show">
+      <div
+        data-test="shop-pg__category"
+        className="shop-show"
+      >
         <header
           ref={ele => (shoheader = ele)}
           className="shop-show__header"

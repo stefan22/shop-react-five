@@ -22,10 +22,9 @@ const Navigation = () => {
 
   return (
     <div className="header">
-      <nav
-          className="header__inner-wrapper">
+      <nav className="header__inner-wrapper">
         <Link
-          data-test="navigation-link"
+          data-test="navigation-link-home"
           className="logo-wrapper"
           to={ROUTES.HOME}
         >
@@ -41,7 +40,7 @@ const Navigation = () => {
 
         <div className="header-menu">
           <Link
-            data-test="navigation-link"
+            data-test="navigation-link-shop"
             className="header-menu--link"
             to={ROUTES.SHOP}
           >
@@ -51,7 +50,7 @@ const Navigation = () => {
           {currentUser?.uid ? (
             <>
               <Link
-                data-test="navigation-link"
+                data-test="navigation-link-account"
                 className="header-menu--link"
                 to={ROUTES.ACCOUNT}
               >
@@ -59,7 +58,7 @@ const Navigation = () => {
               </Link>
 
               <Link
-                data-test="navigation-link"
+                data-test="navigation-link-signout"
                 className="header-menu--link"
                 onClick={handleSignOut}
                 to={ROUTES.SIGNIN}
@@ -69,7 +68,7 @@ const Navigation = () => {
             </>
           ) : (
             <Link
-              data-test="navigation-link"
+              data-test="navigation-link-signin"
               className="header-menu--link"
               to={ROUTES.SIGNIN}
             >
@@ -78,7 +77,7 @@ const Navigation = () => {
           )}
 
           <Link
-            data-test="navigation-link"
+            data-test="navigation-link-cart"
             to={ROUTES.HOME}
             className="topnav-cart"
           >

@@ -9,18 +9,12 @@ const {
   SIGN_IN_GOOGLE_USER,
 } = USER_ACTION_TYPES
 
+export const signOutCurrentUser = user => createAction(SIGN_OUT_USER, user)
 
-export const signOutCurrentUser = user =>
-  createAction(SIGN_OUT_USER, user)
+export const signUpCurrentUser = user => createAction(SIGN_UP_USER, user)
 
-export const signUpCurrentUser = user =>
-  createAction(SIGN_UP_USER, user)
+export const signInCurrentUser = user => createAction(SIGN_IN_USER, user)
 
-export const signInCurrentUser = user =>
-  createAction(SIGN_IN_USER, user)
+export const signInGoogleCurrentUser = () => createAction(SIGN_IN_GOOGLE_USER)
 
-export const signInGoogleCurrentUser = () =>
-  createAction(SIGN_IN_GOOGLE_USER)
-
-export const signInFailed = () =>
-      createAction(SIGN_IN_FAILURE)
+export const signInFailed = () => createAction(SIGN_IN_FAILURE)
